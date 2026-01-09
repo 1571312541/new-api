@@ -1,0 +1,2641 @@
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {
+  "Content-Type": "application/json",
+  "User-Agent": "Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1",
+  "x-request-id": "0b2ba740-aacb-4e87-8515-dbf992209053",
+  "x-request-session-id": "f1a391fd-d317-4ec1-bace-34d1b5833426",
+  "Authorization": "Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a"
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Body: {"model":"claude-sonnet-4-5","path":null,"prefix":null,"selected_code":null,"suffix":null,"message":"hi","chat_history":[],"lang":null,"blobs":{"checkpoint_id":"8a93223c443afcd00cc5e70857fb9c24ec30174bc3a33653d32052a066571682","added_blobs":["2fd028b1c78b05a4265658817805d221ab0d4dba35d828aa0a336bf757054bef","f1223e1dc69f65643a1b899326fc8bf58436121b9853b49d353228709267f546","f542d3610141d129b2522e9e239a45b81a1201192278745913fe54771b3546dc"],"deleted_blobs":["7fa878748a11ad57039021591ec36417c6fd4f1a707dbc3b610b0ac43db0d01b","80c0be840f9202dd92b438681a09f02fb17a0046a162877273b1c5ba5dfac7fd","e166be2e2f95205d4c528b0e43e7e0d4addf412d8ad4753603dbf63ffac41225"]},"user_guided_blobs":[],"context_code_exchange_request_id":null,"external_source_ids":[],"disable_auto_external_sources":null,"user_guidelines":"UNIVERSAL DELIVERY RULE v3.1  \nArchitecture-neutral; adaptive to Python, JavaScript/TypeScript, HTML/CSS, Kotlin/Java, Go, Rust, C#, PHP, Shell; strict, quantified, executable; pure text only.\n\nSECTION 1: MUST-FOLLOW (NON-NEGOTIABLE)  \n1.1 Single Source Of Truth: existing repository code + code-examples directory + update-style documents. No fabrication of APIs, types, files, data, or results.  \n1.2 Examples-first: before writing to any file, read the corresponding example in code-examples (same language and scenario) and align structure, naming, and error handling.  \n1.3 First tool: codebase-retrieval must be run first for understanding; do not proceed without at least three matches (file:line and symbol) covering the target surface.  \n1.4 Update-style documents only: overview.md, plan.md, task.md, INTERFACE.md, TREE.md, and module README must be updated in place; create once if missing; no duplicates or copies.  \n1.5 No tests unless TDD is explicitly requested; if TDD is requested, tests come first.  \n1.6 Technical tone: plan.md and task.md contain only technical facts (paths, symbols, line ranges, commands, outputs). Only overview.md may contain a short semantic brief.  \n1.7 Logging discipline: at most one core log site per flow/request; at most five log statements per file; no logs inside pure functions or tight loops; redact sensitive data; remove exploratory logs before merge.  \n1.8 Comment discipline: only rationale or contract notes; per file new comment lines ≤ 10 and per changed function ≤ 1 short block; no narrative or redundant comments.  \n1.9 Memory discipline: every task must use remeber to store key points; after each phase add at least three items in the form label|fact|impact|next. Every task should remeber key point.  \n1.10 Quality priority: high-quality functional delivery is first; zero tolerance for broken builds or failing gates.  \n1.11 Revertability: changes must be atomic and revertible with a single VCS revert; do not mix unrelated edits.  \n1.12 No conversation summaries in deliverables; output only the technical content needed to execute.\n\nSECTION 2: PROCESS DESIGN  \n2.1 Standard process (use for multi-file or multi-module changes, public interface changes, or document structure changes):  \nA) Intake  \nB) Scope  \nC) Audit  \nD) Plan  \nE) Implement  \nF) Verify  \nG) UpdateDocs  \nH) Schedule/Repeat  \n2.2 Fast path (use only if all are true: changed files ≤ 1; changed lines ≤ 30; no public interface change; single module; no resources or build script edits):  \nB1) Run codebase-retrieval and record three matches  \nB2) Apply a minimal edit (str-replace-editor or small targeted change)  \nB3) Run minimal gates (formatter and linter for the stack)  \nB4) Update task.md and add three remeber items; if no Task Space, place these in the PR body\n\nSECTION 3: STEP SPECIFICATIONS  \n3.1 Intake  \na) Run codebase-retrieval on the target path or regex; require at least three matches with file:line and symbol; if zero, stop and refine the query.  \nb) Record in task.md: module name, entry files, example file paths used.  \nc) Add remeber.intake.* (at least three items: coverage, interface, risk).  \n3.2 Scope  \na) Produce a change list per affected file (path, class or def, function, line range, estimated delta lines).  \nb) Hard limits: function length ≤ 80 lines; file length ≤ 500 lines; cross-layer dependency changes = 0; new files ≤ planned count.  \nc) Write to plan.md a table-like list path:class#func Lx–Ly ~±n.  \nd) Add remeber.scope.* (at least three items).  \n3.3 Audit  \na) Use view to inspect signatures and call paths; run codebase-retrieval again to confirm the end-to-end chain (for example handler → service → repository), or equivalent in the stack.  \nb) For external libraries, resolve the library identifier and fetch official docs; record version and parameter differences.  \nc) Write to plan.md: interface signatures (one per line), call sites with file:line, current error and fallback paths.  \nd) Violations that must be zero: forbidden cross-layer dependencies; missing error handling in data/control flows; business logic embedded inside UI templates or rende
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[{"id":0,"type":8,"content":"","tool_use":null,"thinking":{"summary":"\n用户只是说了 \"hi\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\n\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\n","content":null,"openai_responses_api_item_id":null},"billing_metadata":null,"metadata":{"openai_id":null,"google_ts":null,"provider":null},"token_usage":null}],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 0,
+      "type": 8,
+      "content": "",
+      "tool_use": null,
+      "thinking": {
+        "summary": "\n用户只是说了 \"hi\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\n\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\n",
+        "content": null,
+        "openai_responses_api_item_id": null
+      },
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 0,
+      "type": 8,
+      "content": "",
+      "tool_use": null,
+      "thinking": {
+        "summary": "\n用户只是说了 \"hi\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\n\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\n",
+        "content": null,
+        "openai_responses_api_item_id": null
+      },
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"\n\n你","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "\n\n你",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "\n\n你",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"好！","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "好！",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "好！",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"👋","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "👋",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "👋",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"\n\n我是你","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "\n\n我是你",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "\n\n我是你",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"的代","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "的代",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "的代",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"码助手。","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "码助手。",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "码助手。",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"我注","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "我注",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "我注",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"意到你当","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "意到你当",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "意到你当",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"前的","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "前的",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "前的",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"工","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "工",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "工",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"作区","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "作区",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "作区",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"是 `c:\\Users\\admin","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "是 `c:\\Users\\admin",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "是 `c:\\Users\\admin",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"\\Desktop\\start\\code\\new","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "\\Desktop\\start\\code\\new",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "\\Desktop\\start\\code\\new",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"-api`。","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "-api`。",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "-api`。",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"\n\n请","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "\n\n请",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "\n\n请",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"告","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "告",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "告",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"诉我你需要什么","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "诉我你需要什么",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "诉我你需要什么",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"帮助？","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "帮助？",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "帮助？",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"例","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "例",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "例",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"如：","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "如：",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "如：",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"\n\n- ","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "\n\n- ",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "\n\n- ",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"🔍 **代","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "🔍 **代",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "🔍 **代",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"码分","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "码分",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "码分",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"析**","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "析**",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "析**",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":" - 理","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": " - 理",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": " - 理",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"解现","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "解现",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "解现",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"有代码结构和逻","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "有代码结构和逻",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "有代码结构和逻",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"辑\n- ","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "辑\n- ",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "辑\n- ",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"✨ **功能开发","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "✨ **功能开发",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "✨ **功能开发",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"** - 添加新功","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "** - 添加新功",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "** - 添加新功",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"能或模","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "能或模",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "能或模",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"块\n- ","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "块\n- ",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "块\n- ",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"🐛 **Bug ","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "🐛 **Bug ",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "🐛 **Bug ",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"修复** - 定","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "修复** - 定",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "修复** - 定",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"位和修复问","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "位和修复问",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "位和修复问",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"题\n- 📝","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "题\n- 📝",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "题\n- 📝",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":" **文档更新** -","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": " **文档更新** -",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": " **文档更新** -",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":" 更新或","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": " 更新或",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": " 更新或",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"生","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "生",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "生",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"成文","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "成文",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "成文",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"档\n- 🔧 ","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "档\n- 🔧 ",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "档\n- 🔧 ",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"**代","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "**代",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "**代",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"码重","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "码重",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "码重",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"构** - 优化代","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "构** - 优化代",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "构** - 优化代",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"码结构和","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "码结构和",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "码结构和",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"质","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "质",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "质",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"量","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "量",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "量",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"\n\n请描","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "\n\n请描",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "\n\n请描",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"述你的","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "述你的",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "述你的",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"需求，我会按","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "需求，我会按",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "需求，我会按",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"照规","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "照规",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "照规",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"范","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "范",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "范",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"流","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "流",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "流",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"程帮你","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "程帮你",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "程帮你",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"完成任","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "完成任",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "完成任",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"务！","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "务！",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "务！",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[{"id":1,"type":0,"content":"\n\n你好！👋\n\n我是你的代码助手。我注意到你当前的工作区是 `c:\\Users\\admin\\Desktop\\start\\code\\new-api`。\n\n请告诉我你需要什么帮助？例如：\n\n- 🔍 **代码分析** - 理解现有代码结构和逻辑\n- ✨ **功能开发** - 添加新功能或模块\n- 🐛 **Bug 修复** - 定位和修复问题\n- 📝 **文档更新** - 更新或生成文档\n- 🔧 **代码重构** - 优化代码结构和质量\n\n请描述你的需求，我会按照规范流程帮你完成任务！","tool_use":null,"thinking":null,"billing_metadata":null,"metadata":{"openai_id":null,"google_ts":null,"provider":null},"token_usage":null}],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 1,
+      "type": 0,
+      "content": "\n\n你好！👋\n\n我是你的代码助手。我注意到你当前的工作区是 `c:\\Users\\admin\\Desktop\\start\\code\\new-api`。\n\n请告诉我你需要什么帮助？例如：\n\n- 🔍 **代码分析** - 理解现有代码结构和逻辑\n- ✨ **功能开发** - 添加新功能或模块\n- 🐛 **Bug 修复** - 定位和修复问题\n- 📝 **文档更新** - 更新或生成文档\n- 🔧 **代码重构** - 优化代码结构和质量\n\n请描述你的需求，我会按照规范流程帮你完成任务！",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 1,
+      "type": 0,
+      "content": "\n\n你好！👋\n\n我是你的代码助手。我注意到你当前的工作区是 `c:\\Users\\admin\\Desktop\\start\\code\\new-api`。\n\n请告诉我你需要什么帮助？例如：\n\n- 🔍 **代码分析** - 理解现有代码结构和逻辑\n- ✨ **功能开发** - 添加新功能或模块\n- 🐛 **Bug 修复** - 定位和修复问题\n- 📝 **文档更新** - 更新或生成文档\n- 🔧 **代码重构** - 优化代码结构和质量\n\n请描述你的需求，我会按照规范流程帮你完成任务！",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[{"id":2,"type":2,"content":"","tool_use":null,"thinking":null,"billing_metadata":null,"metadata":{"openai_id":null,"google_ts":null,"provider":null},"token_usage":null}],"stop_reason":1}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 2,
+      "type": 2,
+      "content": "",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": 1
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 2,
+      "type": 2,
+      "content": "",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": 1
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[{"id":3,"type":3,"content":"","tool_use":null,"thinking":null,"billing_metadata":null,"metadata":null,"token_usage":null}],"stop_reason":1}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 3,
+      "type": 3,
+      "content": "",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": null,
+      "token_usage": null
+    }
+  ],
+  "stop_reason": 1
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 3,
+      "type": 3,
+      "content": "",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": null,
+      "token_usage": null
+    }
+  ],
+  "stop_reason": 1
+}
+Icon-CaBYD5oO.js:17 Audio blocked by browser policy. Sound will work after user interaction.
+(anonymous) @ Icon-CaBYD5oO.js:17
+playSound @ extension-client-context-CwKdOhUw.js:336
+await in playSound
+
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {
+  "Content-Type": "application/json",
+  "User-Agent": "Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1",
+  "x-request-id": "69b58b28-572d-4fde-8219-36a5e7598ae5",
+  "x-request-session-id": "f1a391fd-d317-4ec1-bace-34d1b5833426",
+  "Authorization": "Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a"
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Body: {"model":"claude-sonnet-4-5","path":null,"prefix":null,"selected_code":null,"suffix":null,"message":"###\n# ENTER MESSAGE ANALYSIS MODE\n# IN THIS MODE YOU ONLY ANALYZE THE MESSAGE AND DECIDE IF IT HAS INFORMATION WORTH REMEMBERING\n# YOU DON'T USE TOOLS OR ANSWER TO THE NEXT MESSAGE ITSELF\n# YOU RETURN ONLY JSON\n# ###\n\nHere is the next message from the user:\n```\nhi\n```\nYour task is to detect if the next message contains some information worth remembering in long-term.\nInformation is worth remembering if in the next message user gives some new information, asks to do something differently or describes user preferences.\nKnowledge is worth remembering if it is relevant to the codebase, policies, preferred technologies or patterns, etc AND if it will be useful in the long-term!\nAlso, if user hints to how/where tests should be written, it is also worth remembering.\nIf knowledge is overly specific to the current task, then it is NOT worth remembering.\nIf user reports some task specific bug, it is NOT worth remembering.\n\nExceptions (do not remember such information):\n- If user asks not to use some existing tools\n\nReturn JSON with three keys (in provided order): \"explanation\" (str), \"worthRemembering\" (bool) and \"content\" (str).\n\"explanation\" should be short (1 sentence) text that describes why the information is worth remembering or not.\n\"content\" should be short (1 sentence) text that describes the information worth remembering.\nIf \"worthRemembering\" is false, then \"content\" should be empty.\n\nWrite ONLY JSON and no other text (start response with \"{\"). All planning/reasoning/etc should be put into \"explanation\". Don't use any tools for it.\nExample: {\"explanation\": \"some explanation\", \"worthRemembering\": true or false, \"content\": \"memory content\"}\n\n","chat_history":[{"request_message":"hi","response_text":"","request_id":"0b2ba740-aacb-4e87-8515-dbf992209053","request_nodes":[{"id":0,"type":0,"text_node":{"content":"hi"}},{"id":1,"type":4,"ide_state_node":{"workspace_folders":[{"folder_root":"c:\\Users\\admin\\Desktop\\start\\code\\new-api","repository_root":"c:\\Users\\admin\\Desktop\\start\\code\\new-api"}],"workspace_folders_unchanged":false,"current_terminal":{"terminal_id":0,"current_working_directory":"c:\\Users\\admin\\Desktop\\start\\code\\new-api"}}}],"response_nodes":[{"id":0,"type":8,"content":"","tool_use":null,"thinking":{"summary":"\n用户只是说了 \"hi\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\n\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\n","content":null,"openai_responses_api_item_id":null},"billing_metadata":null,"metadata":{"openai_id":null,"google_ts":null,"provider":null},"token_usage":null},{"id":1,"type":0,"content":"\n\n你好！👋\n\n我是你的代码助手。我注意到你当前的工作区是 `c:\\Users\\admin\\Desktop\\start\\code\\new-api`。\n\n请告诉我你需要什么帮助？例如：\n\n- 🔍 **代码分析** - 理解现有代码结构和逻辑\n- ✨ **功能开发** - 添加新功能或模块\n- 🐛 **Bug 修复** - 定位和修复问题\n- 📝 **文档更新** - 更新或生成文档\n- 🔧 **代码重构** - 优化代码结构和质量\n\n请描述你的需求，我会按照规范流程帮你完成任务！","tool_use":null,"thinking":null,"billing_metadata":null,"metadata":{"openai_id":null,"google_ts":null,"provider":null},"token_usage":null}]}],"lang":null,"blobs":{"checkpoint_id":null,"added_blobs":[],"deleted_blobs":[]},"user_guided_blobs":[],"context_code_exchange_request_id":null,"external_source_ids":[],"disable_auto_external_sources":null,"user_guidelines":"UNIVERSAL DELIVERY RULE v3.1  \nArchitecture-neutral; adaptive to Python, JavaScript/TypeScript, HTML/CSS, Kotlin/Java, Go, Rust, C#, PHP, Shell; strict, quantified, executable; pure text only.\n\nSECTION 1: MUST-FOLLOW (NON-NEGOTIABLE)  \n1.1 Single Source Of Truth: existing repository code + code-examples directory + update-style documents. No fabrication of APIs, types, files, data, or results.  \n1.2 Examples-first: before writing to any file, read the corresponding example in code-examples (same language and scenario) and align structure, naming, and error handling.  \n1.3 First tool: codebase-retrieval must be run first for understanding; do not proceed without at least three matches (file:line and symbol) covering the target surface.  \n1.4 Update-style documents only: overview.md, plan.md, task.md, INTERFACE.md, TREE.md, and module README must be updated in place; create once if missing; no duplicates or copies.  \n1.5 No tests unless TDD is explicitly requested; if TDD is requested, tests come first.  \n1.6 Technical tone: plan.md and task.md contain only technical facts (paths, symbols, line ranges, commands, outputs). Only overview.md may contain a short semantic brief.  \n1.7 Logging discipline: at most one core log site per flow/request; at most five log statements per file; no logs inside pure functions or tight loops; redact sensitive data; remove exploratory logs before merge.  \n1.8 Comment discipline: only rationale or contract notes; per file new comment lines ≤ 10 and per changed function ≤ 1 short block; no narrative or redundant comments.  \n1.9 Memory discipline: every 
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {
+  "Content-Type": "application/json",
+  "User-Agent": "Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1",
+  "x-request-id": "279cc9b9-c76c-49aa-a0d2-2a4f79296aeb",
+  "x-request-session-id": "f1a391fd-d317-4ec1-bace-34d1b5833426",
+  "Authorization": "Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a"
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Body: {"model":"claude-sonnet-4-5","path":null,"prefix":null,"selected_code":null,"suffix":null,"message":"Please provide a clear and concise summary of our conversation so far. The summary must be less than 6 words long. The summary must contain the key points of the conversation. The summary must be in the form of a title which will represent the conversation. The response should not include any additional formatting such as wrapping the response with quotation marks.","chat_history":[{"request_message":"hi","response_text":"","request_id":"0b2ba740-aacb-4e87-8515-dbf992209053","request_nodes":[{"id":0,"type":0,"text_node":{"content":"hi"}},{"id":1,"type":4,"ide_state_node":{"workspace_folders":[{"folder_root":"c:\\Users\\admin\\Desktop\\start\\code\\new-api","repository_root":"c:\\Users\\admin\\Desktop\\start\\code\\new-api"}],"workspace_folders_unchanged":false,"current_terminal":{"terminal_id":0,"current_working_directory":"c:\\Users\\admin\\Desktop\\start\\code\\new-api"}}}],"response_nodes":[{"id":0,"type":8,"content":"","tool_use":null,"thinking":{"summary":"\n用户只是说了 \"hi\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\n\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\n","content":null,"openai_responses_api_item_id":null},"billing_metadata":null,"metadata":{"openai_id":null,"google_ts":null,"provider":null},"token_usage":null},{"id":1,"type":0,"content":"\n\n你好！👋\n\n我是你的代码助手。我注意到你当前的工作区是 `c:\\Users\\admin\\Desktop\\start\\code\\new-api`。\n\n请告诉我你需要什么帮助？例如：\n\n- 🔍 **代码分析** - 理解现有代码结构和逻辑\n- ✨ **功能开发** - 添加新功能或模块\n- 🐛 **Bug 修复** - 定位和修复问题\n- 📝 **文档更新** - 更新或生成文档\n- 🔧 **代码重构** - 优化代码结构和质量\n\n请描述你的需求，我会按照规范流程帮你完成任务！","tool_use":null,"thinking":null,"billing_metadata":null,"metadata":{"openai_id":null,"google_ts":null,"provider":null},"token_usage":null}]}],"lang":null,"blobs":{"checkpoint_id":null,"added_blobs":[],"deleted_blobs":[]},"user_guided_blobs":[],"context_code_exchange_request_id":null,"external_source_ids":[],"disable_auto_external_sources":null,"user_guidelines":"UNIVERSAL DELIVERY RULE v3.1  \nArchitecture-neutral; adaptive to Python, JavaScript/TypeScript, HTML/CSS, Kotlin/Java, Go, Rust, C#, PHP, Shell; strict, quantified, executable; pure text only.\n\nSECTION 1: MUST-FOLLOW (NON-NEGOTIABLE)  \n1.1 Single Source Of Truth: existing repository code + code-examples directory + update-style documents. No fabrication of APIs, types, files, data, or results.  \n1.2 Examples-first: before writing to any file, read the corresponding example in code-examples (same language and scenario) and align structure, naming, and error handling.  \n1.3 First tool: codebase-retrieval must be run first for understanding; do not proceed without at least three matches (file:line and symbol) covering the target surface.  \n1.4 Update-style documents only: overview.md, plan.md, task.md, INTERFACE.md, TREE.md, and module README must be updated in place; create once if missing; no duplicates or copies.  \n1.5 No tests unless TDD is explicitly requested; if TDD is requested, tests come first.  \n1.6 Technical tone: plan.md and task.md contain only technical facts (paths, symbols, line ranges, commands, outputs). Only overview.md may contain a short semantic brief.  \n1.7 Logging discipline: at most one core log site per flow/request; at most five log statements per file; no logs inside pure functions or tight loops; redact sensitive data; remove exploratory logs before merge.  \n1.8 Comment discipline: only rationale or contract notes; per file new comment lines ≤ 10 and per changed function ≤ 1 short block; no narrative or redundant comments.  \n1.9 Memory discipline: every task must use remeber to store key points; after each phase add at least three items in the form label|fact|impact|next. Every task should remeber key point.  \n1.10 Quality priority: high-quality functional delivery is first; zero tolerance for broken builds or failing gates.  \n1.11 Revertability: changes must be atomic and revertible with a single VCS revert; do not mix unrelated edits.  \n1.12 No conversation summaries in deliverables; output only the technical content needed to execute.\n\nSECTION 2: PROCESS DESIGN  \n2.1 Standard process (use for multi-file or multi-module changes, public interface changes, or document structure changes):  \nA) Intake  \nB) Scope  \nC) Audit  \nD) Plan  \nE) Implement  \nF) Verify  \nG) UpdateDocs  \nH) Schedule/Repeat  \n2.2 Fast path (use only if all are true: changed files ≤ 1; changed lines ≤ 30; no public interface change; single module; no resources or build script edits):  \nB1) Run codebase-retrieval and record three matches  \nB2) Apply a minimal edit (str-replace-editor or small targeted change)  \nB3) Run minimal gates (formatter and linter for the stack)  \nB4) Update task.md and add three remeber items; if no Task Space, place these in the PR body\n\nSECTION 3: STEP SPECIFICATIONS  \n3.1 Intake  \na) Run codebase-retrieval on the target path or regex; require at least three matches wit
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"{\"","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "{\"",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "{\"",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"explanation\": \"The","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "explanation\": \"The",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "explanation\": \"The",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":" message","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": " message",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": " message",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":" ","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": " ",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": " ",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"'hi' is","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "'hi' is",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "'hi' is",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":" just","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": " just",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": " just",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":" a greeting with","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": " a greeting with",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": " a greeting with",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":" no substant","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": " no substant",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": " no substant",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"ive information about","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "ive information about",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "ive information about",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":" preferences","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": " preferences",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": " preferences",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":", patterns","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": ", patterns",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": ", patterns",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":", or c","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": ", or c",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": ", or c",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"odebase-","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "odebase-",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "odebase-",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"relate","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "relate",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "relate",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"d knowledge","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "d knowledge",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "d knowledge",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":".\",","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": ".\",",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": ".\",",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":" \"worthRemembering\": false,","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": " \"worthRemembering\": false,",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": " \"worthRemembering\": false,",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":" \"content\": \"\"}","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": " \"content\": \"\"}",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": " \"content\": \"\"}",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[{"id":1,"type":0,"content":"{\"explanation\": \"The message 'hi' is just a greeting with no substantive information about preferences, patterns, or codebase-related knowledge.\", \"worthRemembering\": false, \"content\": \"\"}","tool_use":null,"thinking":null,"billing_metadata":null,"metadata":{"openai_id":null,"google_ts":null,"provider":null},"token_usage":null}],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 1,
+      "type": 0,
+      "content": "{\"explanation\": \"The message 'hi' is just a greeting with no substantive information about preferences, patterns, or codebase-related knowledge.\", \"worthRemembering\": false, \"content\": \"\"}",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 1,
+      "type": 0,
+      "content": "{\"explanation\": \"The message 'hi' is just a greeting with no substantive information about preferences, patterns, or codebase-related knowledge.\", \"worthRemembering\": false, \"content\": \"\"}",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[{"id":2,"type":2,"content":"","tool_use":null,"thinking":null,"billing_metadata":null,"metadata":{"openai_id":null,"google_ts":null,"provider":null},"token_usage":null}],"stop_reason":1}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 2,
+      "type": 2,
+      "content": "",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": 1
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 2,
+      "type": 2,
+      "content": "",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": 1
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[{"id":3,"type":3,"content":"","tool_use":null,"thinking":null,"billing_metadata":null,"metadata":null,"token_usage":null}],"stop_reason":1}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 3,
+      "type": 3,
+      "content": "",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": null,
+      "token_usage": null
+    }
+  ],
+  "stop_reason": 1
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 3,
+      "type": 3,
+      "content": "",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": null,
+      "token_usage": null
+    }
+  ],
+  "stop_reason": 1
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"新","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "新",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "新",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"API","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "API",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "API",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"项","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "项",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "项",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"目初始对","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "目初始对",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "目初始对",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"话","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "话",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "话",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[{"id":1,"type":0,"content":"新API项目初始对话","tool_use":null,"thinking":null,"billing_metadata":null,"metadata":{"openai_id":null,"google_ts":null,"provider":null},"token_usage":null}],"stop_reason":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 1,
+      "type": 0,
+      "content": "新API项目初始对话",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 1,
+      "type": 0,
+      "content": "新API项目初始对话",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": null
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[{"id":2,"type":2,"content":"","tool_use":null,"thinking":null,"billing_metadata":null,"metadata":{"openai_id":null,"google_ts":null,"provider":null},"token_usage":null}],"stop_reason":1}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 2,
+      "type": 2,
+      "content": "",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": 1
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 2,
+      "type": 2,
+      "content": "",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": {
+        "openai_id": null,
+        "google_ts": null,
+        "provider": null
+      },
+      "token_usage": null
+    }
+  ],
+  "stop_reason": 1
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"text":"","unknown_blob_names":[],"checkpoint_not_found":false,"workspace_file_chunks":[],"incorporated_external_sources":[],"nodes":[{"id":3,"type":3,"content":"","tool_use":null,"thinking":null,"billing_metadata":null,"metadata":null,"token_usage":null}],"stop_reason":1}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 3,
+      "type": 3,
+      "content": "",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": null,
+      "token_usage": null
+    }
+  ],
+  "stop_reason": 1
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {
+  "text": "",
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false,
+  "workspace_file_chunks": [],
+  "incorporated_external_sources": [],
+  "nodes": [
+    {
+      "id": 3,
+      "type": 3,
+      "content": "",
+      "tool_use": null,
+      "thinking": null,
+      "billing_metadata": null,
+      "metadata": null,
+      "token_usage": null
+    }
+  ],
+  "stop_reason": 1
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] Autocomplete Telemetry event: Autocomplete Suggestion Requested {languageId: 'log', autocompleteType: 'inline'}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] Autocomplete Telemetry event: Autocomplete Suggestion Requested {languageId: 'log', autocompleteType: 'inline'}
+console.ts:139 [Extension Host] Autocomplete Telemetry event: Autocomplete Suggestion Requested {languageId: 'log', autocompleteType: 'inline'}
+console.ts:139 [Extension Host] Autocomplete Telemetry event: Autocomplete Suggestion Requested {languageId: 'log', autocompleteType: 'inline'}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] Autocomplete Telemetry event: Autocomplete Suggestion Requested {languageId: 'log', autocompleteType: 'inline'}
+console.ts:139 [Extension Host] Autocomplete Telemetry event: Autocomplete Suggestion Requested {languageId: 'log', autocompleteType: 'inline'}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/next-edit-stream
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {
+  "Content-Type": "application/json",
+  "User-Agent": "Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1",
+  "x-request-id": "b3467306-52a0-4b4b-91ba-5866a8973bbe",
+  "x-request-session-id": "f1a391fd-d317-4ec1-bace-34d1b5833426",
+  "Authorization": "Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a"
+}
+console.ts:139 [Extension Host] Unable to log remote console arguments Output omitted for a large object that exceeds the limits
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"next_edit":{"path":"augmentPluginsOk.log","blob_name":"d0eaaab201193da8a58289081c28df919a3a82effd7d3b87a4e946edb177fc49","char_start":0,"char_end":197,"existing_code":"[Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n","suggested_code":"[Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n","truncation_char":null,"diff_spans":[{"original":{"start":0,"stop":197},"updated":{"start":0,"stop":197}}],"change_description":"","suggestion_id":"80faa4f0-f07d-4fa9-b213-faf47f4d7fb0","localization_score":0.77728117,"editing_score":0.34693977,"editing_score_threshold":1.0,"markdown_change_description":""},"unknown_blob_names":[],"checkpoint_not_found":false}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "next_edit": {
+    "path": "augmentPluginsOk.log",
+    "blob_name": "d0eaaab201193da8a58289081c28df919a3a82effd7d3b87a4e946edb177fc49",
+    "char_start": 0,
+    "char_end": 197,
+    "existing_code": "[Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n",
+    "suggested_code": "[Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n",
+    "truncation_char": null,
+    "diff_spans": [
+      {
+        "original": {
+          "start": 0,
+          "stop": 197
+        },
+        "updated": {
+          "start": 0,
+          "stop": 197
+        }
+      }
+    ],
+    "change_description": "",
+    "suggestion_id": "80faa4f0-f07d-4fa9-b213-faf47f4d7fb0",
+    "localization_score": 0.77728117,
+    "editing_score": 0.34693977,
+    "editing_score_threshold": 1,
+    "markdown_change_description": ""
+  },
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"next_edit":{"path":"augmentPluginsOk.log","blob_name":"d0eaaab201193da8a58289081c28df919a3a82effd7d3b87a4e946edb177fc49","char_start":197,"char_end":288,"existing_code":"  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n","suggested_code":"  \"User-Agent\": \"Augment.vscode-augment/0.696.3 (win32; x64; 10.0.26100) vscode/1.107.1\",\n","truncation_char":null,"diff_spans":[{"original":{"start":0,"stop":46},"updated":{"start":0,"stop":46}},{"original":{"start":46,"stop":47},"updated":{"start":46,"stop":47}},{"original":{"start":47,"stop":89},"updated":{"start":47,"stop":89}},{"original":{"start":89,"stop":90},"updated":{"start":89,"stop":89}},{"original":{"start":90,"stop":91},"updated":{"start":89,"stop":90}}],"change_description":"Update User-Agent in request headers to version 0.696.3.\n","suggestion_id":"dcf3eae0-acae-4e1b-b7bc-7f4c18bd0e4a","localization_score":0.77728117,"editing_score":0.34693977,"editing_score_threshold":1.0,"markdown_change_description":""},"unknown_blob_names":[],"checkpoint_not_found":false}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "next_edit": {
+    "path": "augmentPluginsOk.log",
+    "blob_name": "d0eaaab201193da8a58289081c28df919a3a82effd7d3b87a4e946edb177fc49",
+    "char_start": 197,
+    "char_end": 288,
+    "existing_code": "  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n",
+    "suggested_code": "  \"User-Agent\": \"Augment.vscode-augment/0.696.3 (win32; x64; 10.0.26100) vscode/1.107.1\",\n",
+    "truncation_char": null,
+    "diff_spans": [
+      {
+        "original": {
+          "start": 0,
+          "stop": 46
+        },
+        "updated": {
+          "start": 0,
+          "stop": 46
+        }
+      },
+      {
+        "original": {
+          "start": 46,
+          "stop": 47
+        },
+        "updated": {
+          "start": 46,
+          "stop": 47
+        }
+      },
+      {
+        "original": {
+          "start": 47,
+          "stop": 89
+        },
+        "updated": {
+          "start": 47,
+          "stop": 89
+        }
+      },
+      {
+        "original": {
+          "start": 89,
+          "stop": 90
+        },
+        "updated": {
+          "start": 89,
+          "stop": 89
+        }
+      },
+      {
+        "original": {
+          "start": 90,
+          "stop": 91
+        },
+        "updated": {
+          "start": 89,
+          "stop": 90
+        }
+      }
+    ],
+    "change_description": "Update User-Agent in request headers to version 0.696.3.\n",
+    "suggestion_id": "dcf3eae0-acae-4e1b-b7bc-7f4c18bd0e4a",
+    "localization_score": 0.77728117,
+    "editing_score": 0.34693977,
+    "editing_score_threshold": 1,
+    "markdown_change_description": ""
+  },
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"next_edit":{"path":"augmentPluginsOk.log","blob_name":"d0eaaab201193da8a58289081c28df919a3a82effd7d3b87a4e946edb177fc49","char_start":288,"char_end":3196,"existing_code":"  \"x-request-id\": \"0b2ba740-aacb-4e87-8515-dbf992209053\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Body: \r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {\"text\":\"\",\"unknown_blob_names\":[],\"checkpoint_not_found\":false,\"workspace_file_chunks\":[],\"incorporated_external_sources\":[],\"nodes\":[{\"id\":0,\"type\":8,\"content\":\"\",\"tool_use\":null,\"thinking\":{\"summary\":\"\\n用户只是说了 \\\"hi\\\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\\n\\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\\n\",\"content\":null,\"openai_responses_api_item_id\":null},\"billing_metadata\":null,\"metadata\":{\"openai_id\":null,\"google_ts\":null,\"provider\":null},\"token_usage\":null}],\"stop_reason\":null}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 0,\r\n      \"type\": 8,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": {\r\n        \"summary\": \"\\n用户只是说了 \\\"hi\\\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\\n\\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\\n\",\r\n        \"content\": null,\r\n        \"openai_responses_api_item_id\": null\r\n      },\r\n      \"billing_metadata\": null,\r\n      \"metadata\": {\r\n        \"openai_id\": null,\r\n        \"google_ts\": null,\r\n        \"provider\": null\r\n      },\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": null\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 0,\r\n      \"type\": 8,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": {\r\n        \"summary\": \"\\n用户只是说了 \\\"hi\\\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\\n\\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\\n\",\r\n        \"content\": null,\r\n        \"openai_responses_api_item_id\": null\r\n      },\r\n      \"billing_metadata\": null,\r\n      \"metadata\": {\r\n        \"openai_id\": null,\r\n        \"google_ts\": null,\r\n        \"provider\": null\r\n      },\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": null\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {\"text\":\"\\n\\n你\",\"unknown_blob_names\":[],\"checkpoint_not_found\":false,\"workspace_file_chunks\":[],\"incorporated_external_sources\":[],\"nodes\":[],\"stop_reason\":null}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {\r\n  \"text\": \"\\n\\n你\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [],\r\n  \"stop_reason\": null\r\n}\r\n","suggested_code":"  \"x-request-id\": \"0b2ba740-aacb-4e87-8515-dbf992209053\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Body: \r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {\"text\":\"\",\"unknown_blob_names\":[],\"checkpoint_not_found\":false,\"workspace_file_chunks\":[],\"incorporated_external_sources\":[],\"nodes\":[{\"id\":0,\"type\":8,\"content\":\"\",\"tool_use\":null,\"thinking\":{\"summary\":\"\\n用户只是说了 \\\"hi\\\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\\n\\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\\n\",\"content\":null,\"openai_responses_api_item_id\":null},\"billing_metadata\":null,\"metadata\":{\"openai_id\":null,\"google_ts\":null,\"provider\":null},\"token_usage\":null}],\"stop_reason\":null}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 0,\r\n      \"type\": 8,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": {\r\n        \"summary\": \"\\n用户只是说了 \\\"hi\\\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\\n\\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\\n\",\r\n        \"content\": null,\r\n        \"openai_responses_api_item_id\": null\r\n      },\r\n      \"billing_metadata\": null,\r\n      \"metadata\": {\r\n        \"openai_id\": null,\r\n        \"google_ts\": null,\r\n        \"provider\": null\r\n      },\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": null\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 0,\r\n      \"type\": 8,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": {\r\n        \"summary\": \"\\n用户只是说了 \\\"hi\\\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\\n\\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\\n\",\r\n        \"content\": null,\r\n        \"openai_responses_api_item_id\": null\r\n      },\r\n      \"billing_metadata\": null,\r\n      \"metadata\": {\r\n        \"openai_id\": null,\r\n        \"google_ts\": null,\r\n        \"provider\": null\r\n      },\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": null\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {\"text\":\"\\n\\n你\",\"unknown_blob_names\":[],\"checkpoint_not_found\":false,\"workspace_file_chunks\":[],\"incorporated_external_sources\":[],\"nodes\":[],\"stop_reason\":null}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {\r\n  \"text\": \"\\n\\n你\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [],\r\n  \"stop_reason\": null\r\n}\r\n","truncation_char":null,"diff_spans":[{"original":{"start":0,"stop":2908},"updated":{"start":0,"stop":2908}}],"change_description":"","suggestion_id":"27ac48e2-ac63-4868-83dd-7c8f35eb1f78","localization_score":0.77728117,"editing_score":0.34693977,"editing_score_threshold":1.0,"markdown_change_description":""},"unknown_blob_names":[],"checkpoint_not_found":false}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "next_edit": {
+    "path": "augmentPluginsOk.log",
+    "blob_name": "d0eaaab201193da8a58289081c28df919a3a82effd7d3b87a4e946edb177fc49",
+    "char_start": 288,
+    "char_end": 3196,
+    "existing_code": "  \"x-request-id\": \"0b2ba740-aacb-4e87-8515-dbf992209053\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Body: \r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {\"text\":\"\",\"unknown_blob_names\":[],\"checkpoint_not_found\":false,\"workspace_file_chunks\":[],\"incorporated_external_sources\":[],\"nodes\":[{\"id\":0,\"type\":8,\"content\":\"\",\"tool_use\":null,\"thinking\":{\"summary\":\"\\n用户只是说了 \\\"hi\\\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\\n\\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\\n\",\"content\":null,\"openai_responses_api_item_id\":null},\"billing_metadata\":null,\"metadata\":{\"openai_id\":null,\"google_ts\":null,\"provider\":null},\"token_usage\":null}],\"stop_reason\":null}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 0,\r\n      \"type\": 8,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": {\r\n        \"summary\": \"\\n用户只是说了 \\\"hi\\\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\\n\\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\\n\",\r\n        \"content\": null,\r\n        \"openai_responses_api_item_id\": null\r\n      },\r\n      \"billing_metadata\": null,\r\n      \"metadata\": {\r\n        \"openai_id\": null,\r\n        \"google_ts\": null,\r\n        \"provider\": null\r\n      },\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": null\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 0,\r\n      \"type\": 8,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": {\r\n        \"summary\": \"\\n用户只是说了 \\\"hi\\\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\\n\\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\\n\",\r\n        \"content\": null,\r\n        \"openai_responses_api_item_id\": null\r\n      },\r\n      \"billing_metadata\": null,\r\n      \"metadata\": {\r\n        \"openai_id\": null,\r\n        \"google_ts\": null,\r\n        \"provider\": null\r\n      },\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": null\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {\"text\":\"\\n\\n你\",\"unknown_blob_names\":[],\"checkpoint_not_found\":false,\"workspace_file_chunks\":[],\"incorporated_external_sources\":[],\"nodes\":[],\"stop_reason\":null}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {\r\n  \"text\": \"\\n\\n你\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [],\r\n  \"stop_reason\": null\r\n}\r\n",
+    "suggested_code": "  \"x-request-id\": \"0b2ba740-aacb-4e87-8515-dbf992209053\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Body: \r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {\"text\":\"\",\"unknown_blob_names\":[],\"checkpoint_not_found\":false,\"workspace_file_chunks\":[],\"incorporated_external_sources\":[],\"nodes\":[{\"id\":0,\"type\":8,\"content\":\"\",\"tool_use\":null,\"thinking\":{\"summary\":\"\\n用户只是说了 \\\"hi\\\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\\n\\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\\n\",\"content\":null,\"openai_responses_api_item_id\":null},\"billing_metadata\":null,\"metadata\":{\"openai_id\":null,\"google_ts\":null,\"provider\":null},\"token_usage\":null}],\"stop_reason\":null}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 0,\r\n      \"type\": 8,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": {\r\n        \"summary\": \"\\n用户只是说了 \\\"hi\\\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\\n\\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\\n\",\r\n        \"content\": null,\r\n        \"openai_responses_api_item_id\": null\r\n      },\r\n      \"billing_metadata\": null,\r\n      \"metadata\": {\r\n        \"openai_id\": null,\r\n        \"google_ts\": null,\r\n        \"provider\": null\r\n      },\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": null\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 0,\r\n      \"type\": 8,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": {\r\n        \"summary\": \"\\n用户只是说了 \\\"hi\\\"，这是一个简单的问候。我应该用中文友好地回复，并询问他们需要什么帮助。\\n\\n根据系统提示，我需要遵循一些规则，但由于这只是一个问候，我不需要执行任何代码检索或文件操作。我只需要友好地回应并询问用户需要什么帮助。\\n\",\r\n        \"content\": null,\r\n        \"openai_responses_api_item_id\": null\r\n      },\r\n      \"billing_metadata\": null,\r\n      \"metadata\": {\r\n        \"openai_id\": null,\r\n        \"google_ts\": null,\r\n        \"provider\": null\r\n      },\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": null\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {\"text\":\"\\n\\n你\",\"unknown_blob_names\":[],\"checkpoint_not_found\":false,\"workspace_file_chunks\":[],\"incorporated_external_sources\":[],\"nodes\":[],\"stop_reason\":null}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {\r\n  \"text\": \"\\n\\n你\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [],\r\n  \"stop_reason\": null\r\n}\r\n",
+    "truncation_char": null,
+    "diff_spans": [
+      {
+        "original": {
+          "start": 0,
+          "stop": 2908
+        },
+        "updated": {
+          "start": 0,
+          "stop": 2908
+        }
+      }
+    ],
+    "change_description": "",
+    "suggestion_id": "27ac48e2-ac63-4868-83dd-7c8f35eb1f78",
+    "localization_score": 0.77728117,
+    "editing_score": 0.34693977,
+    "editing_score_threshold": 1,
+    "markdown_change_description": ""
+  },
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false
+}
+console.ts:139 [Extension Host] Autocomplete Telemetry event: Autocomplete Suggestion Requested {languageId: 'log', autocompleteType: 'inline'}
+Icon-CaBYD5oO.js:17 Retrying remote agent stream in 4 seconds... (Attempt 1 of 5)
+(anonymous) @ Icon-CaBYD5oO.js:17
+getStream @ remote-agents-client-DV0OXQaI.js:1
+await in getStream
+startRemoteAgentsListStreamWithRetry @ remote-agents-client-DV0OXQaI.js:1
+(anonymous) @ OpenFileButton-BnBhQVIy.js:2
+postMessage
+(anonymous) @ index.html?id=31a0f5be-cf92-49ec-9768-10c5bda85872&parentId=1&origin=3b3b5ded-371d-4e05-8179-13a09492ce15&swVersion=4&extensionId=Augment.vscode-augment&platform=electron&vscode-resource-base-authority=vscode-resource.vscode-cdn.net&parentOrigin=vscode-file%3A%2F%2Fvscode-app&purpose=webviewView:1282
+HostMessaging.channel.port1.onmessage @ index.html?id=31a0f5be-cf92-49ec-9768-10c5bda85872&parentId=1&origin=3b3b5ded-371d-4e05-8179-13a09492ce15&swVersion=4&extensionId=Augment.vscode-augment&platform=electron&vscode-resource-base-authority=vscode-resource.vscode-cdn.net&parentOrigin=vscode-file%3A%2F%2Fvscode-app&purpose=webviewView:342
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/remote-agents/list-stream
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {
+  "Content-Type": "application/json",
+  "User-Agent": "Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1",
+  "x-request-id": "a1d3205d-5097-4fa9-b473-843d63373853",
+  "x-request-session-id": "f1a391fd-d317-4ec1-bace-34d1b5833426",
+  "Authorization": "Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a"
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Body: {"last_update_timestamp":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"updates":[{"type":4,"update_timestamp":"2025-12-29T06:00:18.486115626Z","agent":null,"deleted_agent_id":null,"all_agents":[],"max_agents":100,"max_active_agents":10}]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": [
+    {
+      "type": 4,
+      "update_timestamp": "2025-12-29T06:00:18.486115626Z",
+      "agent": null,
+      "deleted_agent_id": null,
+      "all_agents": [],
+      "max_agents": 100,
+      "max_active_agents": 10
+    }
+  ]
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:               {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+log.ts:460   ERR [Extension Host] Transport error for "mcphub" (streamable-http): Error: SSE stream disconnected: TypeError: terminated
+    at c:\Users\admin\.vscode\extensions\node_modules\.pnpm\@modelcontextprotocol+sdk@1.13.3\node_modules\@modelcontextprotocol\sdk\src\client\streamableHttp.ts:340:24
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+error @ log.ts:460
+error @ log.ts:565
+error @ logService.ts:51
+Aks @ remoteConsoleUtil.ts:58
+$logExtensionHostMessage @ mainThreadConsole.ts:38
+S @ rpcProtocol.ts:458
+Q @ rpcProtocol.ts:443
+M @ rpcProtocol.ts:373
+L @ rpcProtocol.ts:299
+(anonymous) @ rpcProtocol.ts:161
+C @ event.ts:1202
+fire @ event.ts:1233
+fire @ ipc.net.ts:652
+l.onmessage @ localProcessExtensionHost.ts:383
+console.ts:139 [Extension Host] Transport error for "mcphub" (streamable-http): Error: SSE stream disconnected: TypeError: terminated
+    at c:\Users\admin\.vscode\extensions\node_modules\.pnpm\@modelcontextprotocol+sdk@1.13.3\node_modules\@modelcontextprotocol\sdk\src\client\streamableHttp.ts:340:24
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+Lks @ console.ts:139
+$logExtensionHostMessage @ mainThreadConsole.ts:39
+S @ rpcProtocol.ts:458
+Q @ rpcProtocol.ts:443
+M @ rpcProtocol.ts:373
+L @ rpcProtocol.ts:299
+(anonymous) @ rpcProtocol.ts:161
+C @ event.ts:1202
+fire @ event.ts:1233
+fire @ ipc.net.ts:652
+l.onmessage @ localProcessExtensionHost.ts:383
+Icon-CaBYD5oO.js:17 Retrying remote agent stream in 4 seconds... (Attempt 1 of 5)
+(anonymous) @ Icon-CaBYD5oO.js:17
+getStream @ remote-agents-client-DV0OXQaI.js:1
+await in getStream
+startRemoteAgentsListStreamWithRetry @ remote-agents-client-DV0OXQaI.js:1
+(anonymous) @ OpenFileButton-BnBhQVIy.js:2
+postMessage
+(anonymous) @ index.html?id=31a0f5be-cf92-49ec-9768-10c5bda85872&parentId=1&origin=3b3b5ded-371d-4e05-8179-13a09492ce15&swVersion=4&extensionId=Augment.vscode-augment&platform=electron&vscode-resource-base-authority=vscode-resource.vscode-cdn.net&parentOrigin=vscode-file%3A%2F%2Fvscode-app&purpose=webviewView:1282
+HostMessaging.channel.port1.onmessage @ index.html?id=31a0f5be-cf92-49ec-9768-10c5bda85872&parentId=1&origin=3b3b5ded-371d-4e05-8179-13a09492ce15&swVersion=4&extensionId=Augment.vscode-augment&platform=electron&vscode-resource-base-authority=vscode-resource.vscode-cdn.net&parentOrigin=vscode-file%3A%2F%2Fvscode-app&purpose=webviewView:342
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/remote-agents/list-stream
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {
+  "Content-Type": "application/json",
+  "User-Agent": "Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1",
+  "x-request-id": "f4e42a23-7b4f-45c6-8cda-7cfa9ddb0448",
+  "x-request-session-id": "f1a391fd-d317-4ec1-bace-34d1b5833426",
+  "Authorization": "Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a"
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Body: {"last_update_timestamp":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"updates":[{"type":4,"update_timestamp":"2025-12-29T06:02:22.531193898Z","agent":null,"deleted_agent_id":null,"all_agents":[],"max_agents":100,"max_active_agents":10}]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": [
+    {
+      "type": 4,
+      "update_timestamp": "2025-12-29T06:02:22.531193898Z",
+      "agent": null,
+      "deleted_agent_id": null,
+      "all_agents": [],
+      "max_agents": 100,
+      "max_active_agents": 10
+    }
+  ]
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:               {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:               {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] Autocomplete Telemetry event: Autocomplete Suggestion Requested {languageId: 'log', autocompleteType: 'inline'}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/next-edit-stream
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {
+  "Content-Type": "application/json",
+  "User-Agent": "Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1",
+  "x-request-id": "0ace3cde-dee7-45e5-91cd-ef6a504493fa",
+  "x-request-session-id": "f1a391fd-d317-4ec1-bace-34d1b5833426",
+  "Authorization": "Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a"
+}
+console.ts:139 [Extension Host] Unable to log remote console arguments Output omitted for a large object that exceeds the limits
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"next_edit":{"path":"augmentPluginsOk.log","blob_name":"f27dd1f109a930a1ed0e4bd45389edfc7c0749309eed10dcfd3eb0eff52719ac","char_start":113548,"char_end":116057,"existing_code":"d @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n  \"x-request-id\": \"69b58b28-572d-4fde-8219-36a5e7598ae5\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\n","suggested_code":"d @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n  \"x-request-id\": \"69b58b28-572d-4fde-8219-36a5e7598ae5\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\n","truncation_char":null,"diff_spans":[{"original":{"start":0,"stop":2509},"updated":{"start":0,"stop":2509}}],"change_description":"","suggestion_id":"29a61dd4-6cd8-45b4-b288-9fce6e9ba41f","localization_score":0.2332734,"editing_score":1.0,"editing_score_threshold":1.0,"markdown_change_description":""},"unknown_blob_names":[],"checkpoint_not_found":false}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "next_edit": {
+    "path": "augmentPluginsOk.log",
+    "blob_name": "f27dd1f109a930a1ed0e4bd45389edfc7c0749309eed10dcfd3eb0eff52719ac",
+    "char_start": 113548,
+    "char_end": 116057,
+    "existing_code": "d @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n  \"x-request-id\": \"69b58b28-572d-4fde-8219-36a5e7598ae5\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\n",
+    "suggested_code": "d @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n  \"x-request-id\": \"69b58b28-572d-4fde-8219-36a5e7598ae5\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\n",
+    "truncation_char": null,
+    "diff_spans": [
+      {
+        "original": {
+          "start": 0,
+          "stop": 2509
+        },
+        "updated": {
+          "start": 0,
+          "stop": 2509
+        }
+      }
+    ],
+    "change_description": "",
+    "suggestion_id": "29a61dd4-6cd8-45b4-b288-9fce6e9ba41f",
+    "localization_score": 0.2332734,
+    "editing_score": 1,
+    "editing_score_threshold": 1,
+    "markdown_change_description": ""
+  },
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/next-edit-stream
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {
+  "Content-Type": "application/json",
+  "User-Agent": "Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1",
+  "x-request-id": "2c6e8e9a-3465-4c4e-9a4b-e46208c057af",
+  "x-request-session-id": "f1a391fd-d317-4ec1-bace-34d1b5833426",
+  "Authorization": "Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a"
+}
+console.ts:139 [Extension Host] Unable to log remote console arguments Output omitted for a large object that exceeds the limits
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"next_edit":{"path":"augmentPluginsOk.log","blob_name":"f27dd1f109a930a1ed0e4bd45389edfc7c0749309eed10dcfd3eb0eff52719ac","char_start":113548,"char_end":116057,"existing_code":"d @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n  \"x-request-id\": \"69b58b28-572d-4fde-8219-36a5e7598ae5\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\n","suggested_code":"d @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n  \"x-request-id\": \"69b58b28-572d-4fde-8219-36a5e7598ae5\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\n","truncation_char":null,"diff_spans":[{"original":{"start":0,"stop":2509},"updated":{"start":0,"stop":2509}}],"change_description":"","suggestion_id":"a1f27c36-20cc-4e12-9d3a-4fa7941978a5","localization_score":0.2332734,"editing_score":1.0,"editing_score_threshold":1.0,"markdown_change_description":""},"unknown_blob_names":[],"checkpoint_not_found":false}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "next_edit": {
+    "path": "augmentPluginsOk.log",
+    "blob_name": "f27dd1f109a930a1ed0e4bd45389edfc7c0749309eed10dcfd3eb0eff52719ac",
+    "char_start": 113548,
+    "char_end": 116057,
+    "existing_code": "d @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n  \"x-request-id\": \"69b58b28-572d-4fde-8219-36a5e7598ae5\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\n",
+    "suggested_code": "d @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nPromise.then\r\nTp @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:1\r\nRN @ extension-client-context-CwKdOhUw.js:1\r\nly @ extension-client-context-CwKdOhUw.js:1\r\nty @ extension-client-context-CwKdOhUw.js:1\r\nGt.<computed> @ extension-client-context-CwKdOhUw.js:1\r\n(anonymous) @ extension-client-context-CwKdOhUw.js:4\r\nh @ extension-client-context-CwKdOhUw.js:4\r\nd @ extension-client-context-CwKdOhUw.js:4\r\nZ @ extension-client-context-CwKdOhUw.js:4\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n  \"x-request-id\": \"69b58b28-572d-4fde-8219-36a5e7598ae5\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\n",
+    "truncation_char": null,
+    "diff_spans": [
+      {
+        "original": {
+          "start": 0,
+          "stop": 2509
+        },
+        "updated": {
+          "start": 0,
+          "stop": 2509
+        }
+      }
+    ],
+    "change_description": "",
+    "suggestion_id": "a1f27c36-20cc-4e12-9d3a-4fa7941978a5",
+    "localization_score": 0.2332734,
+    "editing_score": 1,
+    "editing_score_threshold": 1,
+    "markdown_change_description": ""
+  },
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"next_edit":{"path":"augmentPluginsOk.log","blob_name":"f27dd1f109a930a1ed0e4bd45389edfc7c0749309eed10dcfd3eb0eff52719ac","char_start":146701,"char_end":148510,"existing_code":"console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 2,\r\n      \"type\": 2,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": null,\r\n      \"billing_metadata\": null,\r\n      \"metadata\": {\r\n        \"openai_id\": null,\r\n        \"google_ts\": null,\r\n        \"provider\": null\r\n      },\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": 1\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {\"text\":\"\",\"unknown_blob_names\":[],\"checkpoint_not_found\":false,\"workspace_file_chunks\":[],\"incorporated_external_sources\":[],\"nodes\":[{\"id\":3,\"type\":3,\"content\":\"\",\"tool_use\":null,\"thinking\":null,\"billing_metadata\":null,\"metadata\":null,\"token_usage\":null}],\"stop_reason\":1}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 3,\r\n      \"type\": 3,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": null,\r\n      \"billing_metadata\": null,\r\n      \"metadata\": null,\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": 1\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 3,\r\n      \"type\": 3,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": null,\r\n      \"billing_metadata\": null,\r\n      \"metadata\": null,\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": 1\r\n}","suggested_code":"console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 2,\r\n      \"type\": 2,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": null,\r\n      \"billing_metadata\": null,\r\n      \"metadata\": {\r\n        \"openai_id\": null,\r\n        \"google_ts\": null,\r\n        \"provider\": null\r\n      },\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": 1\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {\"text\":\"\",\"unknown_blob_names\":[],\"checkpoint_not_found\":false,\"workspace_file_chunks\":[],\"incorporated_external_sources\":[],\"nodes\":[{\"id\":3,\"type\":3,\"content\":\"\",\"tool_use\":null,\"thinking\":null,\"billing_metadata\":null,\"metadata\":null,\"token_usage\":null}],\"stop_reason\":1}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 3,\r\n      \"type\": 3,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": null,\r\n      \"billing_metadata\": null,\r\n      \"metadata\": null,\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": 1\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 3,\r\n      \"type\": 3,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": null,\r\n      \"billing_metadata\": null,\r\n      \"metadata\": null,\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": 1\r\n}","truncation_char":null,"diff_spans":[{"original":{"start":0,"stop":1809},"updated":{"start":0,"stop":1809}}],"change_description":"","suggestion_id":"c5eab73a-ccb2-46da-8502-6382c68dcd93","localization_score":0.049049214,"editing_score":1.0,"editing_score_threshold":1.0,"markdown_change_description":""},"unknown_blob_names":[],"checkpoint_not_found":false}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "next_edit": {
+    "path": "augmentPluginsOk.log",
+    "blob_name": "f27dd1f109a930a1ed0e4bd45389edfc7c0749309eed10dcfd3eb0eff52719ac",
+    "char_start": 146701,
+    "char_end": 148510,
+    "existing_code": "console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 2,\r\n      \"type\": 2,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": null,\r\n      \"billing_metadata\": null,\r\n      \"metadata\": {\r\n        \"openai_id\": null,\r\n        \"google_ts\": null,\r\n        \"provider\": null\r\n      },\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": 1\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {\"text\":\"\",\"unknown_blob_names\":[],\"checkpoint_not_found\":false,\"workspace_file_chunks\":[],\"incorporated_external_sources\":[],\"nodes\":[{\"id\":3,\"type\":3,\"content\":\"\",\"tool_use\":null,\"thinking\":null,\"billing_metadata\":null,\"metadata\":null,\"token_usage\":null}],\"stop_reason\":1}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 3,\r\n      \"type\": 3,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": null,\r\n      \"billing_metadata\": null,\r\n      \"metadata\": null,\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": 1\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 3,\r\n      \"type\": 3,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": null,\r\n      \"billing_metadata\": null,\r\n      \"metadata\": null,\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": 1\r\n}",
+    "suggested_code": "console.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 2,\r\n      \"type\": 2,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": null,\r\n      \"billing_metadata\": null,\r\n      \"metadata\": {\r\n        \"openai_id\": null,\r\n        \"google_ts\": null,\r\n        \"provider\": null\r\n      },\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": 1\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {\"text\":\"\",\"unknown_blob_names\":[],\"checkpoint_not_found\":false,\"workspace_file_chunks\":[],\"incorporated_external_sources\":[],\"nodes\":[{\"id\":3,\"type\":3,\"content\":\"\",\"tool_use\":null,\"thinking\":null,\"billing_metadata\":null,\"metadata\":null,\"token_usage\":null}],\"stop_reason\":1}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 3,\r\n      \"type\": 3,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": null,\r\n      \"billing_metadata\": null,\r\n      \"metadata\": null,\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": 1\r\n}\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] YD Input: {\r\n  \"text\": \"\",\r\n  \"unknown_blob_names\": [],\r\n  \"checkpoint_not_found\": false,\r\n  \"workspace_file_chunks\": [],\r\n  \"incorporated_external_sources\": [],\r\n  \"nodes\": [\r\n    {\r\n      \"id\": 3,\r\n      \"type\": 3,\r\n      \"content\": \"\",\r\n      \"tool_use\": null,\r\n      \"thinking\": null,\r\n      \"billing_metadata\": null,\r\n      \"metadata\": null,\r\n      \"token_usage\": null\r\n    }\r\n  ],\r\n  \"stop_reason\": 1\r\n}",
+    "truncation_char": null,
+    "diff_spans": [
+      {
+        "original": {
+          "start": 0,
+          "stop": 1809
+        },
+        "updated": {
+          "start": 0,
+          "stop": 1809
+        }
+      }
+    ],
+    "change_description": "",
+    "suggestion_id": "c5eab73a-ccb2-46da-8502-6382c68dcd93",
+    "localization_score": 0.049049214,
+    "editing_score": 1,
+    "editing_score_threshold": 1,
+    "markdown_change_description": ""
+  },
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"next_edit":{"path":"augmentPluginsOk.log","blob_name":"f27dd1f109a930a1ed0e4bd45389edfc7c0749309eed10dcfd3eb0eff52719ac","char_start":0,"char_end":511,"existing_code":"[Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n  \"x-request-id\": \"0b2ba740-aacb-4e87-8515-dbf992209053\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\n","suggested_code":"[Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n  \"x-request-id\": \"0b2ba740-aacb-4e87-8515-dbf992209053\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\n","truncation_char":null,"diff_spans":[{"original":{"start":0,"stop":511},"updated":{"start":0,"stop":511}}],"change_description":"","suggestion_id":"753f603a-4fad-49c6-96c6-c84fcb10ef43","localization_score":0.10971259,"editing_score":1.0,"editing_score_threshold":1.0,"markdown_change_description":""},"unknown_blob_names":[],"checkpoint_not_found":false}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "next_edit": {
+    "path": "augmentPluginsOk.log",
+    "blob_name": "f27dd1f109a930a1ed0e4bd45389edfc7c0749309eed10dcfd3eb0eff52719ac",
+    "char_start": 0,
+    "char_end": 511,
+    "existing_code": "[Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n  \"x-request-id\": \"0b2ba740-aacb-4e87-8515-dbf992209053\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\n",
+    "suggested_code": "[Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/chat-stream\r\nconsole.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {\r\n  \"Content-Type\": \"application/json\",\r\n  \"User-Agent\": \"Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1\",\r\n  \"x-request-id\": \"0b2ba740-aacb-4e87-8515-dbf992209053\",\r\n  \"x-request-session-id\": \"f1a391fd-d317-4ec1-bace-34d1b5833426\",\r\n  \"Authorization\": \"Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a\"\r\n}\r\n",
+    "truncation_char": null,
+    "diff_spans": [
+      {
+        "original": {
+          "start": 0,
+          "stop": 511
+        },
+        "updated": {
+          "start": 0,
+          "stop": 511
+        }
+      }
+    ],
+    "change_description": "",
+    "suggestion_id": "753f603a-4fad-49c6-96c6-c84fcb10ef43",
+    "localization_score": 0.10971259,
+    "editing_score": 1,
+    "editing_score_threshold": 1,
+    "markdown_change_description": ""
+  },
+  "unknown_blob_names": [],
+  "checkpoint_not_found": false
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:               {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] Autocomplete Telemetry event: Autocomplete Suggestion Requested {languageId: 'log', autocompleteType: 'inline'}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] Autocomplete Telemetry event: Autocomplete Suggestion Requested {languageId: 'log', autocompleteType: 'inline'}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/next-edit-stream
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {
+  "Content-Type": "application/json",
+  "User-Agent": "Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1",
+  "x-request-id": "1c420922-f5a5-4fb4-9ac5-f1de66bd879e",
+  "x-request-session-id": "f1a391fd-d317-4ec1-bace-34d1b5833426",
+  "Authorization": "Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a"
+}
+console.ts:139 [Extension Host] Unable to log remote console arguments Output omitted for a large object that exceeds the limits
+console.ts:139 [Extension Host] Autocomplete Telemetry event: Autocomplete Suggestion Requested {languageId: 'log', autocompleteType: 'inline'}
+Icon-CaBYD5oO.js:17 Retrying remote agent stream in 4 seconds... (Attempt 1 of 5)
+(anonymous) @ Icon-CaBYD5oO.js:17
+getStream @ remote-agents-client-DV0OXQaI.js:1
+await in getStream
+startRemoteAgentsListStreamWithRetry @ remote-agents-client-DV0OXQaI.js:1
+(anonymous) @ OpenFileButton-BnBhQVIy.js:2
+postMessage
+(anonymous) @ index.html?id=31a0f5be-cf92-49ec-9768-10c5bda85872&parentId=1&origin=3b3b5ded-371d-4e05-8179-13a09492ce15&swVersion=4&extensionId=Augment.vscode-augment&platform=electron&vscode-resource-base-authority=vscode-resource.vscode-cdn.net&parentOrigin=vscode-file%3A%2F%2Fvscode-app&purpose=webviewView:1282
+HostMessaging.channel.port1.onmessage @ index.html?id=31a0f5be-cf92-49ec-9768-10c5bda85872&parentId=1&origin=3b3b5ded-371d-4e05-8179-13a09492ce15&swVersion=4&extensionId=Augment.vscode-augment&platform=electron&vscode-resource-base-authority=vscode-resource.vscode-cdn.net&parentOrigin=vscode-file%3A%2F%2Fvscode-app&purpose=webviewView:342
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/remote-agents/list-stream
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Headers: {
+  "Content-Type": "application/json",
+  "User-Agent": "Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1",
+  "x-request-id": "3f10e9fd-f8f0-4531-a919-c4833d71bcf8",
+  "x-request-session-id": "f1a391fd-d317-4ec1-bace-34d1b5833426",
+  "Authorization": "Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a"
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Request Body: {"last_update_timestamp":null}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"updates":[{"type":4,"update_timestamp":"2025-12-29T06:04:26.525454059Z","agent":null,"deleted_agent_id":null,"all_agents":[],"max_agents":100,"max_active_agents":10}]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": [
+    {
+      "type": 4,
+      "update_timestamp": "2025-12-29T06:04:26.525454059Z",
+      "agent": null,
+      "deleted_agent_id": null,
+      "all_agents": [],
+      "max_agents": 100,
+      "max_active_agents": 10
+    }
+  ]
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:               {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:               {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Raw Response Line:               {"updates":[]}
+console.ts:139 [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+ [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+ [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+ [Extension Host] [AUGMENT-DEBUG] Raw Response Line:               {"updates":[]}
+ [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+ [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+ [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+ [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+ [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+ Retrying remote agent stream in 4 seconds... (Attempt 1 of 5)
+(anonymous) @ Icon-CaBYD5oO.js:17
+getStream @ remote-agents-client-DV0OXQaI.js:1
+await in getStream
+startRemoteAgentsListStreamWithRetry @ remote-agents-client-DV0OXQaI.js:1
+(anonymous) @ OpenFileButton-BnBhQVIy.js:2
+postMessage
+(anonymous) @ index.html?id=31a0f5…5-8179-13a094…:1282
+HostMessaging.channel.port1.onmessage @ index.html?id=31a0f5…05-8179-13a094…:342
+ [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/remote-agents/list-stream
+ [Extension Host] [AUGMENT-DEBUG] Request Headers: {
+  "Content-Type": "application/json",
+  "User-Agent": "Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1",
+  "x-request-id": "4c605fdd-7e8d-4612-843a-03775a3a90d7",
+  "x-request-session-id": "f1a391fd-d317-4ec1-bace-34d1b5833426",
+  "Authorization": "Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a"
+}
+ [Extension Host] [AUGMENT-DEBUG] Request Body: {"last_update_timestamp":null}
+ [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"updates":[{"type":4,"update_timestamp":"2025-12-29T06:06:30.755389009Z","agent":null,"deleted_agent_id":null,"all_agents":[],"max_agents":100,"max_active_agents":10}]}
+ [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": [
+    {
+      "type": 4,
+      "update_timestamp": "2025-12-29T06:06:30.755389009Z",
+      "agent": null,
+      "deleted_agent_id": null,
+      "all_agents": [],
+      "max_agents": 100,
+      "max_active_agents": 10
+    }
+  ]
+}
+ [Extension Host] [AUGMENT-DEBUG] Raw Response Line:               {"updates":[]}
+ [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+ [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+ [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+ [Extension Host] [AUGMENT-DEBUG] Raw Response Line:               {"updates":[]}
+ [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+ [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+ [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+ [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+ [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+ [Extension Host] [AUGMENT-DEBUG] Raw Response Line:                {"updates":[]}
+ [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+ [Extension Host] [AUGMENT-DEBUG] Raw Response Line:               {"updates":[]}
+ [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": []
+}
+ Retrying remote agent stream in 4 seconds... (Attempt 1 of 5)
+(anonymous) @ Icon-CaBYD5oO.js:17
+getStream @ remote-agents-client-DV0OXQaI.js:1
+await in getStream
+startRemoteAgentsListStreamWithRetry @ remote-agents-client-DV0OXQaI.js:1
+(anonymous) @ OpenFileButton-BnBhQVIy.js:2
+postMessage
+(anonymous) @ index.html?id=31a0f5…5-8179-13a094…:1282
+HostMessaging.channel.port1.onmessage @ index.html?id=31a0f5…05-8179-13a094…:342
+ [Extension Host] [AUGMENT-DEBUG] Request URL: https://d9.api.augmentcode.com/remote-agents/list-stream
+ [Extension Host] [AUGMENT-DEBUG] Request Headers: {
+  "Content-Type": "application/json",
+  "User-Agent": "Augment.vscode-augment/0.696.2 (win32; x64; 10.0.26100) vscode/1.107.1",
+  "x-request-id": "4647d283-0a0c-4e9f-a49d-aaa09ddb8739",
+  "x-request-session-id": "f1a391fd-d317-4ec1-bace-34d1b5833426",
+  "Authorization": "Bearer 298781ed77d97ef5b132a8feb1029cce76977bd12196fe777f728bd7d1cdcf2a"
+}
+ [Extension Host] [AUGMENT-DEBUG] Request Body: {"last_update_timestamp":null}
+ [Extension Host] [AUGMENT-DEBUG] Raw Response Line: {"updates":[{"type":4,"update_timestamp":"2025-12-29T06:08:34.563434237Z","agent":null,"deleted_agent_id":null,"all_agents":[],"max_agents":100,"max_active_agents":10}]}
+ [Extension Host] [AUGMENT-DEBUG] Parsed JSON: {
+  "updates": [
+    {
+      "type": 4,
+      "update_timestamp": "2025-12-29T06:08:34.563434237Z",
+      "agent": null,
+      "deleted_agent_id": null,
+      "all_agents": [],
+      "max_agents": 100,
+      "max_active_agents": 10
+    }
+  ]
+}

@@ -60,6 +60,16 @@ func SetRelayRouter(router *gin.Engine) {
 	{
 		playgroundRouter.POST("/chat/completions", controller.Playground)
 	}
+
+	// Augment plugin chat-stream route (root level: /chat-stream)
+	augmentRouter := router.Group("")
+	augmentRouter.Use(middleware.TokenAuth())
+	augmentRouter.Use(middleware.ModelRequestRateLimit())
+	augmentRouter.Use(middleware.Distribute())
+	{
+		augmentRouter.POST("/chat-stream", controller.AugmentChatStream)
+	}
+
 	relayV1Router := router.Group("/v1")
 	relayV1Router.Use(middleware.TokenAuth())
 	relayV1Router.Use(middleware.ModelRequestRateLimit())

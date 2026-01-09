@@ -1,0 +1,8 @@
+{
+  "default_collection": "new-api-964372cb",
+  "default_mode": "default",
+  "require_context": true,
+  "surface_qdrant_collection_hint": false,
+  "refrag_runtime": "llamacpp",
+  "llamacpp_model": "llamacpp-4.6"
+}

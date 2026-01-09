@@ -1,0 +1,1467 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Augment - Bugment 配置</title>
+  <script nonce="nonce-HKpiL9ffRsG6GgQ9TWd7rQ==">
+    /**
+     * Monaco bootstrap script
+     *
+     * This script is included directly in HTML files to load Monaco editor.
+     * It's kept as a simple JS file to avoid any build/transpilation requirements.
+     */
+
+    // Define the Monaco CDN version
+    const MONACO_VERSION = "0.52.2";
+    const MONACO_CDN_BASE = `https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/${MONACO_VERSION}/min`;
+
+    // Initialize augmentDeps if it doesn't exist
+    window.augmentDeps = window.augmentDeps || {};
+
+    // Create a promise that will resolve when Monaco is ready
+    let monacoResolve;
+    window.augmentDeps.monaco = new Promise((resolve) => {
+      monacoResolve = resolve;
+    });
+
+    // If Monaco is already loaded, don't load it again
+    if (window.monaco) {
+      console.log("Monaco already loaded, skipping bootstrap");
+      initializeMonacoDeps();
+    } else {
+      // Load the Monaco loader script
+      const loaderScript = document.createElement("script");
+      loaderScript.src = `${MONACO_CDN_BASE}/vs/loader.min.js`;
+      loaderScript.onload = initializeMonaco;
+      document.head.appendChild(loaderScript);
+    }
+
+    // Initialize Monaco after the loader script has loaded
+    function initializeMonaco() {
+      // require is provided by loader.min.js
+      require.config({
+        paths: { vs: `${MONACO_CDN_BASE}/vs` },
+      });
+
+      require(["vs/editor/editor.main"], () => {
+        initializeMonacoDeps();
+      });
+    }
+
+    // Initialize Monaco dependencies
+    function initializeMonacoDeps() {
+      window.augmentDeps.monaco.resolve = monacoResolve;
+      monacoResolve(window.monaco);
+    }
+
+  </script>
+  <meta property="csp-nonce" nonce="nonce-HKpiL9ffRsG6GgQ9TWd7rQ==">
+  <style nonce="nonce-HKpiL9ffRsG6GgQ9TWd7rQ==">
+    /* Global Reset & Typography */
+    :root {
+      --radius-base: 4px;
+      --spacing-base: 16px;
+    }
+
+    body {
+      font-family: var(--vscode-font-family, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif);
+      font-size: var(--vscode-font-size, 13px);
+      color: var(--vscode-foreground);
+      background-color: var(--vscode-editor-background);
+      margin: 0;
+      padding: 24px;
+      line-height: 1.4;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Modern Header */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 24px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid var(--vscode-widget-border);
+    }
+
+    .header-icon {
+      font-size: 36px;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--vscode-editor-foreground);
+      letter-spacing: -0.2px;
+    }
+
+    .header-subtitle {
+      font-size: 13px;
+      color: var(--vscode-descriptionForeground);
+      margin-top: 4px;
+    }
+
+    /* Modern Card */
+    .card {
+      background-color: var(--vscode-editor-background);
+      border: 1px solid var(--vscode-widget-border);
+      border-radius: var(--radius-base);
+      padding: 0;
+      overflow: hidden;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-color: var(--vscode-focusBorder);
+    }
+
+    .card-header {
+      padding: 16px 20px;
+      background-color: var(--vscode-editor-lineHighlightBackground);
+      border-bottom: 1px solid var(--vscode-widget-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--vscode-foreground);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Support direct h2 in card without .card-header wrapper */
+    .card > h2 {
+        padding: 16px 20px;
+        background-color: var(--vscode-editor-lineHighlightBackground);
+        border-bottom: 1px solid var(--vscode-widget-border);
+    }
+
+    .config-section, .content-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Form Elements */
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .input-group label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--vscode-input-foreground);
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    select,
+    textarea {
+      background-color: var(--vscode-input-background);
+      color: var(--vscode-input-foreground);
+      border: 1px solid var(--vscode-input-border);
+      border-radius: 2px;
+      padding: 6px 10px;
+      font-family: var(--vscode-font-family);
+      font-size: 13px;
+      width: 100%;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--vscode-focusBorder);
+      outline: 1px solid var(--vscode-focusBorder);
+      outline-offset: -1px;
+    }
+
+    ::placeholder {
+        color: var(--vscode-input-placeholderForeground);
+    }
+
+    /* Buttons */
+    .button {
+      background-color: var(--vscode-button-background);
+      color: var(--vscode-button-foreground);
+      border: none;
+      border-radius: 2px;
+      padding: 6px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    .button:hover {
+      background-color: var(--vscode-button-hoverBackground);
+    }
+
+    .button.secondary {
+      background-color: var(--vscode-button-secondaryBackground);
+      color: var(--vscode-button-secondaryForeground);
+    }
+
+    .button.secondary:hover {
+      background-color: var(--vscode-button-secondaryHoverBackground);
+    }
+
+    .button.small {
+      padding: 0 10px;
+      height: 24px;
+      font-size: 12px;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+    }
+
+    /* Status & Info */
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--vscode-widget-border);
+    }
+
+    .info-row:last-child {
+        border-bottom: none;
+    }
+
+    .info-row .label {
+      color: var(--vscode-descriptionForeground);
+      font-size: 13px;
+    }
+
+    .info-row .value {
+        font-weight: 500;
+        font-family: var(--vscode-editor-font-family, monospace);
+        font-size: 13px;
+    }
+
+    .config-status {
+      padding: 8px 12px;
+      border-radius: 2px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 20px;
+      margin-top: 8px;
+    }
+
+    .config-status:empty {
+        display: none;
+    }
+
+    .config-status.success { color: var(--vscode-testing-iconPassed); background-color: rgba(0,255,0,0.1); }
+    .config-status.error { color: var(--vscode-errorForeground); background-color: rgba(255,0,0,0.1); }
+    .config-status.warning { color: var(--vscode-editorWarning-foreground); background-color: rgba(255,200,0,0.1); }
+
+    .activation-status { font-weight: 600; }
+    .activation-status.activated { color: var(--vscode-testing-iconPassed); }
+    .activation-status.pending { color: var(--vscode-descriptionForeground); }
+    .activation-status.expired { color: var(--vscode-editorWarning-foreground); }
+    .activation-status.not-activated { color: var(--vscode-errorForeground); }
+
+    /* Utility Helpers */
+    .input-with-button { display: flex; gap: 8px; }
+    .input-with-button input { flex: 1; }
+
+    .input-hint {
+        margin-top: 8px;
+        font-size: 12px;
+        color: var(--vscode-descriptionForeground);
+        line-height: 1.4;
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .hidden { display: none !important; }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      animation: fadeIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* Activation Textarea */
+    #activation-code-input {
+      font-family: var(--vscode-editor-font-family, 'SF Mono', Monaco, Consolas, monospace);
+      font-size: 12px;
+      line-height: 1.5;
+      min-height: 120px;
+      resize: vertical;
+      white-space: pre-wrap;
+    }
+    /* Augment Balance Styles */
+    .balance-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 12px 20px 20px 20px;
+    }
+
+    .balance-amount {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--vscode-foreground);
+    }
+
+    .balance-amount.positive {
+      color: var(--vscode-testing-iconPassed);
+    }
+
+    .balance-amount.low {
+      color: var(--vscode-editorWarning-foreground);
+    }
+
+    .balance-amount.negative {
+      color: var(--vscode-errorForeground);
+    }
+
+    .balance-status {
+      font-size: 14px;
+      color: var(--vscode-descriptionForeground);
+    }
+
+    .account-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 12px 20px 20px 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- {{ AURA: Modify - 隐藏标题区域，简化界面 }} -->
+    <div class="header" style="display:none;">
+      <div class="header-icon">🚀</div>
+      <div class="header-content">
+        <h1>Bugment Control Center</h1>
+        <div class="header-subtitle">Manage your models, activation, and settings</div>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- 模型配置卡片 -->
+      <div class="card" id="model-config-card">
+        <!-- {{ AURA: Modify - 隐藏卡片头部 }} -->
+        <div class="card-header" style="display:none;">
+          <h2>🤖 模型配置</h2>
+          <button class="button small" onclick="refreshModelConfig()">🔄 刷新</button>
+        </div>
+        <div class="config-section">
+          <!-- {{ AURA: Modify - 隐藏 Provider/Base URL 显示，使用硬编码默认值 }} -->
+          <!-- 当前配置显示 - 隐藏 -->
+          <div class="info-row" style="display:none;">
+            <span class="label">当前 Provider:</span>
+            <span class="value" id="current-provider">Kiro</span>
+          </div>
+          <div class="info-row" style="display:none;">
+            <span class="label">当前模型:</span>
+            <span class="value" id="current-model">-</span>
+          </div>
+          <!-- Base URL 隐藏，使用硬编码默认值 -->
+          <div class="input-group" style="display:none;">
+            <label for="base-url-input">Base URL:</label>
+            <input type="text" id="base-url-input" value="https://newapi.stonefancyx.com" placeholder="e.g. http://127.0.0.1:8317">
+          </div>
+
+          <!-- API Key 输入框 - 保留显示 -->
+          <div class="input-group">
+            <label for="api-key-input">API Key:</label>
+            <div class="input-with-button">
+              <input type="password" id="api-key-input" placeholder="sk-..." value="">
+              <button id="toggle-api-key" class="button secondary small" onclick="toggleApiKeyVisibility()">👁️</button>
+            </div>
+          </div>
+
+
+
+          <!-- {{ AURA: Modify - Provider 选择器隐藏，硬编码为 Kiro }} -->
+          <div class="input-group" style="display:none;">
+            <label for="provider-select">选择 Provider:</label>
+            <select id="provider-select">
+              <option value="Kiro" selected>Kiro</option>
+            </select>
+          </div>
+
+          <!-- Model 选择器 - 保留显示，使用简化名称 -->
+          <div class="input-group">
+            <label for="model-select">选择模型:</label>
+            <select id="model-select">
+              <option value="">-- 选择模型 --</option>
+              <option value="kiro-claude-opus-4-5-agentic" selected>Claude Opus 4.5</option>
+              <option value="kiro-claude-sonnet-4-5-agentic">Sonnet 4.5</option>
+              <option value="kiro-claude-sonnet-4-agentic">Sonnet 4</option>
+              <option value="kiro-claude-haiku-4-5-agentic">Haiku 4.5</option>
+            </select>
+          </div>
+
+          <div class="button-group">
+            <button class="button" onclick="applyModelConfig()">应用配置</button>
+          </div>
+          <div class="config-status" id="model-config-status"></div>
+        </div>
+      </div>
+
+      <!-- {{ AURA: Modify - 系统激活卡片隐藏 }} -->
+      <div class="card" id="activation-card" style="display:none;">
+        <h2>🔐 系统激活</h2>
+        <div class="config-section">
+          <div class="info-row">
+            <span class="label">激活状态:</span>
+            <span class="value" id="activation-status">
+              <span class="loading">⏳ 检查中...</span>
+            </span>
+          </div>
+          <div class="info-row">
+            <span class="label">机器ID:</span>
+            <span class="value" id="machine-id">-</span>
+            <button class="copy-button" onclick="copyMachineId()" title="复制机器ID">📋 复制</button>
+          </div>
+          <div class="info-row" id="activation-date-row" style="display: none;">
+            <span class="label">激活时间:</span>
+            <span class="value" id="activation-date">-</span>
+          </div>
+
+          <div id="activation-input-section" style="display: none;">
+            <div class="input-group">
+              <label for="activation-code-input">签名激活码 (JWS):</label>
+              <textarea id="activation-code-input"
+                placeholder="粘贴以 . 分隔的签名激活码 (JWS)&#10;&#10;示例格式：&#10;eyJhbGciOiJFZERTQSIsImtpZCI6Im1haW4ifQ.&#10;eyJzdWIiOiJWSVAtRDlGRi05ODdGLThGNEUiLCJpYXQiOjE3NTc2MDk1NzUsImV4cCI6MTc2MDIwMTU3NSwianRpIjoiNjc1NjBjOTktOTNmOS00YjBkLWJjMWMtNWE2MjgxNzZkNGE4IiwicGtoIjoiODNwSk1pREZIaTRqbGRlbFJWT2o1MlJVX1piZFNjcGJZcm9KNUJZYzJ6OCIsImVkaXRpb24iOiJWSVAifQ.&#10;7ueSdpTmLr5nL0-rXXbmg5HNh9crCY2Ss6Dqu3OxBqQgqltovsuIiH_OmOV03izvotPGR5QTc2Lr4QeSqQg1DA"
+                rows="6"></textarea>
+              <div class="input-hint">
+                <span>💡</span>
+                <span><strong>提示：</strong>激活码很长，可以直接粘贴整个JWS令牌。支持换行显示，方便查看各个部分。</span>
+              </div>
+            </div>
+            <div class="button-group">
+              <button class="button" onclick="activateSystem()">激活系统</button>
+              <button class="button secondary" onclick="clearActivationInput()">清空</button>
+            </div>
+          </div>
+
+          <div id="activation-success-section" style="display: none;">
+            <div class="button-group">
+              <button class="button secondary small" onclick="copyMachineId()">复制机器ID</button>
+            </div>
+          </div>
+
+          <div class="config-status" id="activation-status-message"></div>
+        </div>
+      </div>
+
+      <!-- 信息面板 - 所有版本可用 -->
+      <div class="card" id="info-panel-card" style="display: none;">
+        <h2>🚀 Augment 信息面板</h2>
+        <p>这个面板显示您的 Augment Code 账号信息和使用积分状态。</p>
+
+        <div class="config-section">
+          <div class="info-row">
+            <span class="label">扩展版本:</span>
+            <span class="value" id="extension-version">未知</span>
+          </div>
+          <div class="info-row">
+            <span class="label">安装时间:</span>
+            <span class="value" id="install-time">未知</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="token-config-card" style="display: none;">
+        <h2>⚙️ Orb Token 配置</h2>
+        <div class="config-section">
+          <div class="input-group">
+            <label for="api-token-input">Orb Token:</label>
+            <div class="input-with-button">
+              <input type="password" id="api-token-input" placeholder="请输入您的 Augment Orb Token" />
+              <button class="button small" onclick="toggleTokenVisibility()">👁️</button>
+            </div>
+          </div>
+          <div class="button-group">
+            <button class="button" onclick="saveToken()">保存配置</button>
+            <button class="button secondary" onclick="testToken()">测试连接</button>
+            <button class="button secondary" onclick="openSettings()">打开设置</button>
+          </div>
+          <div class="config-status" id="config-status"></div>
+        </div>
+      </div>
+
+      <!-- {{ AURA: Add - 套餐信息卡片，显示当前余额和过期时间 }} -->
+      <div class="card" id="quota-info-card">
+        <div class="card-header">
+          <h2>💳 套餐信息</h2>
+          <button class="button small" onclick="refreshQuotaInfo()">🔄 刷新</button>
+        </div>
+        <div class="config-section">
+          <div class="info-row">
+            <span class="label">当前余额:</span>
+            <span class="value" id="quota-available"><span class="loading">⏳ 加载中...</span></span>
+          </div>
+
+          <div class="info-row">
+            <span class="label">过期时间:</span>
+            <span class="value" id="quota-expires">-</span>
+          </div>
+          <div class="config-status" id="quota-status"></div>
+        </div>
+      </div>
+
+      <div class="card" id="balance-card" style="display: none;">
+        <div class="card-header">
+          <h2>👤 账号信息</h2>
+          <button class="button small" onclick="refreshBalance()">🔄 刷新</button>
+        </div>
+        <div class="account-info">
+          <div class="info-row">
+            <span class="label">当前积分:</span>
+            <span class="value" id="balance-amount"><span class="loading">⏳ 加载中...</span></span>
+          </div>
+          <div class="info-row" id="balance-status-row" style="display: none;">
+            <span class="label">积分状态:</span>
+            <span class="value" id="balance-status"></span>
+          </div>
+          <div class="info-row">
+            <span class="label">邮箱账号:</span>
+            <span class="value" id="account-email">-</span>
+          </div>
+          <div class="info-row">
+            <span class="label">套餐名称:</span>
+            <span class="value" id="account-plan">-</span>
+          </div>
+          <div class="info-row">
+            <span class="label">到期时间:</span>
+            <span class="value" id="account-expiry">-</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 模型配置卡片 (已移动到顶部) -->
+
+
+      <div class="card" style="display: none;">
+        <h2>功能特性</h2>
+        <p>此面板支持与 VSCode 插件的双向通信，可以实现复杂的交互功能。</p>
+
+        <div class="info-section">
+          <div class="info-item">
+            <h3>📊 数据展示</h3>
+            <span>支持各种数据可视化组件</span>
+          </div>
+
+          <div class="info-item">
+            <h3>⚙️ 配置管理</h3>
+            <span>管理插件设置和用户偏好</span>
+          </div>
+
+          <div class="info-item">
+            <h3>🔧 工具集成</h3>
+            <span>集成各种开发工具和服务</span>
+          </div>
+
+          <div class="info-item">
+            <h3>📝 内容编辑</h3>
+            <span>支持富文本和代码编辑</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script nonce="nonce-HKpiL9ffRsG6GgQ9TWd7rQ==">
+    // VSCode API
+    const vscode = acquireVsCodeApi();
+
+    function showMessage() {
+      vscode.postMessage({
+        command: 'showMessage',
+        text: '来自自定义面板的消息！'
+      });
+    }
+
+    function refreshBalance() {
+      // 显示加载状态
+      document.getElementById('balance-amount').innerHTML = '<span class="loading">⏳ 刷新中...</span>';
+      document.getElementById('balance-status').textContent = '';
+      document.getElementById('balance-status-row').style.display = 'none';
+
+      // 请求积分信息
+      vscode.postMessage({
+        command: 'refreshBalance'
+      });
+    }
+
+    function updateBalanceDisplay(balance, status) {
+      const balanceElement = document.getElementById('balance-amount');
+      const statusElement = document.getElementById('balance-status');
+      const statusRowElement = document.getElementById('balance-status-row');
+
+      if (balance !== null && balance !== undefined) {
+        const balanceValue = parseFloat(balance);
+        balanceElement.textContent = `${balanceValue} 积分`;
+
+        // 根据剩余积分设置颜色
+        balanceElement.className = 'value';
+        if (balanceValue > 100) {
+          balanceElement.style.color = 'var(--vscode-testing-iconPassed)';
+        } else if (balanceValue > 0) {
+          balanceElement.style.color = 'var(--vscode-editorWarning-foreground)';
+        } else {
+          balanceElement.style.color = 'var(--vscode-errorForeground)';
+        }
+
+        // 显示状态行（如果有状态信息）
+        if (status) {
+          statusElement.textContent = status;
+          statusRowElement.style.display = 'flex';
+        } else {
+          statusRowElement.style.display = 'none';
+        }
+      } else {
+        balanceElement.innerHTML = '<span class="error">获取失败</span>';
+        statusElement.textContent = status || '无法获取积分信息';
+        statusRowElement.style.display = 'flex';
+      }
+    }
+
+    function updateAccountDisplay(accountInfo) {
+      if (accountInfo) {
+        document.getElementById('account-email').textContent = accountInfo.email || '-';
+        document.getElementById('account-plan').textContent = accountInfo.plan_name || '-';
+
+        if (accountInfo.end_date) {
+          const endDate = new Date(accountInfo.end_date);
+          document.getElementById('account-expiry').textContent = endDate.toLocaleDateString();
+        } else {
+          document.getElementById('account-expiry').textContent = '永久有效';
+        }
+      }
+    }
+
+    function openSettings() {
+      vscode.postMessage({
+        command: 'openSettings'
+      });
+    }
+
+    function toggleTokenVisibility() {
+      const input = document.getElementById('api-token-input');
+      const button = event.target;
+
+      if (input.type === 'password') {
+        input.type = 'text';
+        button.textContent = '🙈';
+      } else {
+        input.type = 'password';
+        button.textContent = '👁️';
+      }
+    }
+
+    function saveToken() {
+      const token = document.getElementById('api-token-input').value.trim();
+      const statusDiv = document.getElementById('config-status');
+
+      if (!token) {
+        statusDiv.className = 'config-status warning';
+        statusDiv.textContent = '⚠️ 请输入 Orb Token';
+        return;
+      }
+
+      statusDiv.className = 'config-status';
+      statusDiv.textContent = '⏳ 保存中...';
+
+      vscode.postMessage({
+        command: 'saveToken',
+        token: token
+      });
+    }
+
+    function testToken() {
+      const token = document.getElementById('api-token-input').value.trim();
+      const statusDiv = document.getElementById('config-status');
+
+      if (!token) {
+        statusDiv.className = 'config-status warning';
+        statusDiv.textContent = '⚠️ 请先输入 Orb Token';
+        return;
+      }
+
+      statusDiv.className = 'config-status';
+      statusDiv.textContent = '⏳ 测试连接中...';
+
+      vscode.postMessage({
+        command: 'testToken',
+        token: token
+      });
+    }
+
+    function loadCurrentToken() {
+      vscode.postMessage({
+        command: 'getCurrentToken'
+      });
+    }
+
+    // 激活相关功能
+    function refreshActivationStatus() {
+      console.log('[PANEL] 🔄 refreshActivationStatus 被调用');
+      console.log('[PANEL] 设置状态为"检查中..."');
+      document.getElementById('activation-status').innerHTML = '<span class="loading">⏳ 检查中...</span>';
+
+      console.log('[PANEL] 发送 getActivationStatus 消息到后端');
+      vscode.postMessage({
+        command: 'getActivationStatus'
+      });
+      console.log('[PANEL] ✅ getActivationStatus 消息已发送');
+    }
+
+
+
+
+
+    function activateSystem() {
+      const activationCodeRaw = document.getElementById('activation-code-input').value;
+      const statusDiv = document.getElementById('activation-status-message');
+
+      if (!activationCodeRaw) {
+        statusDiv.className = 'config-status warning';
+        statusDiv.textContent = '⚠️ 请输入激活码';
+        return;
+      }
+
+      // 清理激活码：移除换行符、空格等，只保留JWS内容
+      const activationCode = activationCodeRaw
+        .replace(/\s+/g, '') // 移除所有空白字符
+        .replace(/[\r\n]/g, '') // 移除换行符
+        .trim();
+
+      if (!activationCode) {
+        statusDiv.className = 'config-status warning';
+        statusDiv.textContent = '⚠️ 激活码不能为空';
+        return;
+      }
+
+      // 验证 JWS 基本格式：三段 Base64URL，用点号分隔
+      if (!/^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(activationCode)) {
+        statusDiv.className = 'config-status warning';
+        statusDiv.textContent = '⚠️ 格式错误，应为签名激活码 (三段以点分隔的 JWS)';
+        return;
+      }
+
+      // 显示清理后的激活码长度信息
+      const parts = activationCode.split('.');
+      console.log(`[PANEL] 激活码验证通过: Header(${parts[0].length}) + Payload(${parts[1].length}) + Signature(${parts[2].length}) = ${activationCode.length} 字符`);
+
+      statusDiv.className = 'config-status';
+      statusDiv.textContent = '⏳ 激活中...';
+
+      vscode.postMessage({
+        command: 'activateSystem',
+        activationCode: activationCode
+      });
+    }
+
+    function clearActivationInput() {
+      document.getElementById('activation-code-input').value = '';
+      const statusDiv = document.getElementById('activation-status-message');
+      statusDiv.className = 'config-status';
+      statusDiv.textContent = '';
+      console.log('[PANEL] 激活码输入框已清空');
+    }
+
+    function copyMachineId() {
+      const machineId = document.getElementById('machine-id').textContent;
+      if (machineId && machineId !== '-') {
+        navigator.clipboard.writeText(machineId).then(() => {
+          const statusDiv = document.getElementById('activation-status-message');
+          statusDiv.className = 'config-status success';
+          statusDiv.textContent = '✅ 机器ID已复制到剪贴板';
+          setTimeout(() => {
+            statusDiv.textContent = '';
+            statusDiv.className = 'config-status';
+          }, 3000);
+        }).catch(() => {
+          // 降级方案：选中文本
+          const element = document.getElementById('machine-id');
+          const range = document.createRange();
+          range.selectNode(element);
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+        });
+      }
+    }
+
+    function updateActivationDisplay(activationInfo) {
+      const statusElement = document.getElementById('activation-status');
+      const machineIdElement = document.getElementById('machine-id');
+      const activationDateRow = document.getElementById('activation-date-row');
+      const activationDateElement = document.getElementById('activation-date');
+      const inputSection = document.getElementById('activation-input-section');
+      const successSection = document.getElementById('activation-success-section');
+
+      // 更新机器ID
+      if (activationInfo.machineId) {
+        machineIdElement.innerHTML = `<span class="machine-id">${activationInfo.machineId}</span>`;
+      }
+
+      // 使用新的 activationStatus 字段来判断状态
+      const status = activationInfo.activationStatus || (activationInfo.isActivated ? STATUS_STRINGS.ACTIVATED : STATUS_STRINGS.NOT_ACTIVATED);
+
+      if (status === STATUS_STRINGS.ACTIVATED) {
+        // 已激活状态 - 显示激活信息，同时允许重新激活
+        statusElement.innerHTML = '<span class="activation-status activated">✅ 已激活 (可重新激活)</span>';
+        inputSection.style.display = 'block'; // 仍然显示输入框，允许重复激活
+        successSection.style.display = 'block'; // 显示已激活的操作按钮
+
+        // 修改按钮文字为“重新激活”
+        const activateButton = inputSection.querySelector('button[onclick="activateSystem()"]');
+        if (activateButton) {
+          activateButton.textContent = '重新激活';
+        }
+
+        if (activationInfo.activationDate) {
+          activationDateRow.style.display = 'flex';
+          const date = new Date(activationInfo.activationDate);
+          activationDateElement.textContent = date.toLocaleString();
+        }
+
+        // 停止定时更新（已激活状态不需要监控）
+        stopStatusTimer();
+      } else if (status === STATUS_STRINGS.PENDING) {
+        // 待激活状态（安装后10分钟内）
+        statusElement.innerHTML = '<span class="activation-status pending">⏳ 待激活</span>';
+        inputSection.style.display = 'block';
+        successSection.style.display = 'none';
+        activationDateRow.style.display = 'none';
+
+        // 按钮文字为"激活系统"
+        const activateButton = inputSection.querySelector('button[onclick="activateSystem()"]');
+        if (activateButton) {
+          activateButton.textContent = '激活系统';
+        }
+
+        // 启动定时更新（待激活状态需要监控试用期到期）
+        startStatusTimer();
+      } else if (status === STATUS_STRINGS.EXPIRED) {
+        // 已过期状态（普通版本2天到期）
+        statusElement.innerHTML = '<span class="activation-status expired">⏰ 已过期 (需重新激活)</span>';
+        inputSection.style.display = 'block';
+        successSection.style.display = 'none';
+        activationDateRow.style.display = 'none';
+
+        // 按钮文字为"重新激活"
+        const activateButton = inputSection.querySelector('button[onclick="activateSystem()"]');
+        if (activateButton) {
+          activateButton.textContent = '重新激活';
+        }
+
+        // 启动定时更新（过期状态需要监控重新激活）
+        startStatusTimer();
+      } else {
+        // 未激活状态
+        statusElement.innerHTML = '<span class="activation-status not-activated">❌ 未激活</span>';
+        inputSection.style.display = 'block';
+        successSection.style.display = 'none';
+        activationDateRow.style.display = 'none';
+
+        // 重置按钮文字为“激活系统”
+        const activateButton = inputSection.querySelector('button[onclick="activateSystem()"]');
+        if (activateButton) {
+          activateButton.textContent = '激活系统';
+        }
+
+        // 停止定时更新（未激活状态不需要监控）
+        stopStatusTimer();
+      }
+    }
+
+    // 监听来自插件的消息
+    window.addEventListener('message', event => {
+      const message = event.data;
+      switch (message.command) {
+        case 'updateBalance':
+          updateBalanceDisplay(message.balance, message.status);
+          break;
+        case 'updateAccount':
+          updateAccountDisplay(message.accountInfo);
+          break;
+        case 'balanceError':
+          updateBalanceDisplay(null, message.error);
+          break;
+        case 'tokenSaved':
+          const statusDiv = document.getElementById('config-status');
+          if (message.success) {
+            statusDiv.className = 'config-status success';
+            statusDiv.textContent = '✅ Orb Token 保存成功';
+            // 自动刷新积分
+            setTimeout(() => {
+              refreshBalance();
+            }, 1000);
+          } else {
+            statusDiv.className = 'config-status error';
+            statusDiv.textContent = '❌ 保存失败: ' + (message.error || '未知错误');
+          }
+          break;
+        case 'tokenTested':
+          const testStatusDiv = document.getElementById('config-status');
+          if (message.success) {
+            testStatusDiv.className = 'config-status success';
+            testStatusDiv.textContent = '✅ 连接测试成功';
+          } else {
+            testStatusDiv.className = 'config-status error';
+            testStatusDiv.textContent = '❌ 连接测试失败: ' + (message.error || '未知错误');
+          }
+          break;
+        case 'currentToken':
+          if (message.token) {
+            document.getElementById('api-token-input').value = message.token;
+          }
+          break;
+        case 'activationStatus':
+          updateActivationDisplay(message.activationInfo);
+          break;
+        case 'activationResult':
+          const activationStatusDiv = document.getElementById('activation-status-message');
+          if (message.success) {
+            activationStatusDiv.className = 'config-status success';
+            activationStatusDiv.textContent = '🎉 ' + message.message;
+            // 清空输入框
+            document.getElementById('activation-code-input').value = '';
+            // 刷新激活状态
+            setTimeout(() => {
+              refreshActivationStatus();
+            }, 1000);
+          } else {
+            activationStatusDiv.className = 'config-status error';
+            activationStatusDiv.textContent = '❌ ' + message.message;
+          }
+          break;
+        case 'extensionInfo':
+          console.log(`[PANEL] 扩展信息: ${message.displayName}, 版本: ${message.version}`);
+
+          // 更新扩展版本显示
+          document.getElementById('extension-version').textContent = message.version || '未知';
+
+          // 直接读取当前插件的package.json获取安装时间
+          loadInstallTimeFromPackageJson();
+
+          // 所有用户都显示完整功能，不再区分VIP
+          toggleVipFeatures(true);
+
+          // 加载所有功能
+          loadCurrentToken();
+          refreshBalance();
+          // {{ AURA: Add - 加载套餐信息 }}
+          refreshQuotaInfo();
+
+          // {{ AURA: Modify - 只显示 balance-card，隐藏其他面板 }}
+          // document.getElementById('info-panel-card').style.display = 'block';
+          // document.getElementById('token-config-card').style.display = 'block';
+          document.getElementById('balance-card').style.display = 'block';
+          break;
+        case 'installTimeFromPackageJson':
+          // 更新安装时间显示
+          if (message.installTime) {
+            const installDate = new Date(message.installTime).toLocaleString();
+            document.getElementById('install-time').textContent = installDate;
+            console.log(`[PANEL] 从package.json获取安装时间: ${installDate}`);
+          } else {
+            document.getElementById('install-time').textContent = '未知';
+            console.log(`[PANEL] 无法从package.json获取安装时间`);
+          }
+          break;
+        case 'modelConfigLoaded':
+          // 模型配置加载完成
+          console.log('[PANEL] 收到模型配置:', message);
+          if (message.success && message.config) {
+            // 使用新的配置结构恢复 UI 状态
+            updateModelConfigDisplay(message.config);
+          } else {
+            console.log('[PANEL] 未找到已保存的模型配置，使用默认');
+            // 使用默认配置
+            updateModelConfigDisplay(null);
+          }
+          break;
+        case 'modelConfigSaved':
+          // 模型配置保存结果
+          const modelStatusDiv = document.getElementById('model-config-status');
+          if (message.success) {
+            modelStatusDiv.className = 'config-status success';
+            modelStatusDiv.textContent = `✅ 模型配置已保存: ${message.config?.provider} / ${message.config?.model || ''}`;
+            // 更新显示
+            if (message.config) {
+              updateModelConfigDisplay(message.config);
+            }
+            // 5秒后清除状态
+            setTimeout(() => {
+              modelStatusDiv.className = 'config-status';
+              modelStatusDiv.textContent = '';
+            }, 5000);
+          } else {
+            modelStatusDiv.className = 'config-status error';
+            modelStatusDiv.textContent = '❌ 保存失败: ' + (message.error || '未知错误');
+          }
+          break;
+        // {{ AURA: Add - 套餐信息消息处理 }}
+        case 'quotaInfoLoaded':
+          console.log('[PANEL] 收到套餐信息:', message);
+          updateQuotaDisplay(message);
+          break;
+      }
+    });
+
+    // 检测VIP版本并控制面板显示
+    let initRetryCount = 0;
+    let initTimer = null;
+
+    function checkVipVersionAndShowPanels() {
+      // 立即发送第一次请求
+      sendInitMessages();
+
+      // 清除可能存在的旧定时器
+      if (initTimer) clearInterval(initTimer);
+
+      // 启动重试循环 (每1秒重试一次，最多5次)
+      initTimer = setInterval(() => {
+        // 检查是否已经初始化成功 (通过检查扩展版本是否已更新)
+        const isInitialized = document.getElementById('extension-version').textContent !== '未知';
+
+        if (isInitialized) {
+          console.log('[PANEL] ✅ 初始化成功，停止重试');
+          clearInterval(initTimer);
+          return;
+        }
+
+        if (initRetryCount >= 5) {
+          console.log('[PANEL] ⚠️ 初始化重试次数耗尽，停止重试');
+          clearInterval(initTimer);
+          return;
+        }
+
+        initRetryCount++;
+        console.log(`[PANEL] ⏳ 未收到响应，正在重试初始化 (${initRetryCount}/5)...`);
+        sendInitMessages();
+      }, 1000);
+    }
+
+    function sendInitMessages() {
+      vscode.postMessage({ command: 'getExtensionInfo' });
+      vscode.postMessage({ command: 'requestSystemInfo' });
+    }
+
+    // ========== 模型配置相关 ==========
+    // {{ AURA: Modify - 硬编码 Kiro Provider 配置，简化界面 }}
+
+    // 硬编码默认配置
+    const DEFAULT_PROVIDER = 'Kiro';
+    const DEFAULT_BASE_URL = 'https://newapi.stonefancyx.com';
+
+    // 模型显示名称映射（显示名称 -> 实际模型名称）
+    const MODEL_DISPLAY_MAP = {
+      'Claude Opus 4.5': 'kiro-claude-opus-4-5-agentic',
+      'Sonnet 4.5': 'kiro-claude-sonnet-4-5-agentic',
+      'Sonnet 4': 'kiro-claude-sonnet-4-agentic',
+      'Haiku 4.5': 'kiro-claude-haiku-4-5-agentic'
+    };
+
+    // 反向映射（实际模型名称 -> 显示名称）
+    const MODEL_REVERSE_MAP = {
+      'kiro-claude-opus-4-5-agentic': 'Claude Opus 4.5',
+      'kiro-claude-sonnet-4-5-agentic': 'Sonnet 4.5',
+      'kiro-claude-sonnet-4-agentic': 'Sonnet 4',
+      'kiro-claude-haiku-4-5-agentic': 'Haiku 4.5'
+    };
+
+    // Kiro Provider 的模型列表
+    const KIRO_MODELS = [
+      'kiro-claude-opus-4-5-agentic',
+      'kiro-claude-sonnet-4-5-agentic',
+      'kiro-claude-sonnet-4-agentic',
+      'kiro-claude-haiku-4-5-agentic'
+    ];
+
+    // 保留 PROVIDERS 变量以兼容现有代码
+    let PROVIDERS = {
+      'Kiro': {
+        name: 'Kiro',
+        base_url: DEFAULT_BASE_URL,
+        models: KIRO_MODELS
+      }
+    };
+
+    // 当前选中的 provider 和 model
+    let currentProvider = DEFAULT_PROVIDER;
+    let currentModel = KIRO_MODELS[0]; // 默认选中第一个模型
+
+    // {{ AURA: Modify - 简化 Provider 初始化，硬编码为 Kiro }}
+    function initProviderSelect() {
+      // Provider 已在 HTML 中硬编码为 Kiro，无需动态生成
+      const providerSelect = document.getElementById('provider-select');
+      providerSelect.value = DEFAULT_PROVIDER;
+      currentProvider = DEFAULT_PROVIDER;
+      document.getElementById('current-provider').textContent = 'Kiro';
+    }
+
+    // 更新 Provider 显示信息 (简化版)
+    function updateProviderDisplay(providerKey) {
+      currentProvider = DEFAULT_PROVIDER;
+      document.getElementById('current-provider').textContent = 'Kiro';
+    }
+
+    // {{ AURA: Modify - 模型下拉框已在 HTML 中硬编码，此函数保留兼容性 }}
+    function updateModelSelect(providerKey) {
+      // 模型列表已在 HTML 中硬编码，无需动态生成
+      // 仅重置当前模型显示
+      const modelSelect = document.getElementById('model-select');
+      if (modelSelect.value) {
+        currentModel = modelSelect.value;
+        const displayName = MODEL_REVERSE_MAP[currentModel] || currentModel;
+        document.getElementById('current-model').textContent = displayName;
+      }
+    }
+
+    // 初始化模型选择下拉框 (简化版)
+    function initModelSelect() {
+      const modelSelect = document.getElementById('model-select');
+
+      // Model 选择事件 - 更新当前模型显示
+      modelSelect.addEventListener('change', function () {
+        const selectedModel = this.value;
+        if (selectedModel) {
+          currentModel = selectedModel;
+          const displayName = MODEL_REVERSE_MAP[selectedModel] || selectedModel;
+          document.getElementById('current-model').textContent = displayName;
+        }
+      });
+
+      // 初始化 Provider（硬编码为 Kiro）
+      initProviderSelect();
+
+      // 设置默认 Base URL
+      document.getElementById('base-url-input').value = DEFAULT_BASE_URL;
+
+      // 默认选中第一个模型
+      if (modelSelect.options.length > 1) {
+        modelSelect.selectedIndex = 1; // 跳过 "-- 选择模型 --" 占位符
+        currentModel = modelSelect.value;
+        const displayName = MODEL_REVERSE_MAP[currentModel] || currentModel;
+        document.getElementById('current-model').textContent = displayName;
+      }
+    }
+
+    // 刷新模型配置显示
+    function refreshModelConfig() {
+      console.log('[PANEL] 刷新模型配置...');
+      vscode.postMessage({
+        command: 'getModelConfig'
+      });
+    }
+    function toggleApiKeyVisibility() {
+      const input = document.getElementById('api-key-input');
+      const btn = document.getElementById('toggle-api-key');
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.textContent = '🔒'; // Click to hide
+      } else {
+        input.type = 'password';
+        btn.textContent = '👁️'; // Click to show
+      }
+    }
+
+    /**
+     * {{ AURA: Modify - 简化模型配置显示函数，使用硬编码默认值 }}
+     */
+    function updateModelConfigDisplay(config) {
+      console.log('[PANEL] 更新模型配置显示:', config);
+
+      // 使用硬编码的 Kiro Provider
+      currentProvider = DEFAULT_PROVIDER;
+      document.getElementById('provider-select').value = DEFAULT_PROVIDER;
+      document.getElementById('current-provider').textContent = 'Kiro';
+
+      // 设置默认 Base URL
+      document.getElementById('base-url-input').value = DEFAULT_BASE_URL;
+
+      // 恢复 API Key（如果配置中有）
+      if (config && config.api_key) {
+        document.getElementById('api-key-input').value = config.api_key;
+      }
+
+      // 设置模型
+      const modelSelect = document.getElementById('model-select');
+      let targetModel = KIRO_MODELS[0]; // 默认第一个模型
+
+      if (config && config.model && KIRO_MODELS.includes(config.model)) {
+        targetModel = config.model;
+      }
+
+      // 检查模型是否存在于列表中
+      const optionExists = Array.from(modelSelect.options).some(opt => opt.value === targetModel);
+      if (optionExists) {
+        modelSelect.value = targetModel;
+        currentModel = targetModel;
+        const displayName = MODEL_REVERSE_MAP[targetModel] || targetModel;
+        document.getElementById('current-model').textContent = displayName;
+      } else {
+        // 默认选择第一个模型
+        if (modelSelect.options.length > 1) {
+          modelSelect.selectedIndex = 1;
+          currentModel = modelSelect.value;
+          const displayName = MODEL_REVERSE_MAP[currentModel] || currentModel;
+          document.getElementById('current-model').textContent = displayName;
+        }
+      }
+
+      console.log(`[PANEL] 模型配置 UI 已更新: ${currentProvider} / ${currentModel}`);
+    }
+
+    // 根据 provider 和 model 查找配置 (兼容旧接口)
+    function findModelConfigByProviderAndModel(providerKey, modelName) {
+      if (!providerKey || !modelName) return null;
+      const provider = PROVIDERS[providerKey];
+      if (provider && provider.models.includes(modelName)) {
+        return {
+          provider: providerKey,
+          model: modelName
+        };
+      }
+      return null;
+    }
+
+    // {{ AURA: Modify - 简化应用配置函数，使用硬编码默认值 }}
+    function applyModelConfig() {
+      const modelSelect = document.getElementById('model-select');
+      const statusDiv = document.getElementById('model-config-status');
+      const apiKeyInput = document.getElementById('api-key-input');
+
+      const selectedModel = modelSelect.value;
+      const apiKey = apiKeyInput.value.trim();
+
+      // 只验证 API Key 和模型选择
+      if (!apiKey) {
+        statusDiv.className = 'config-status warning';
+        statusDiv.textContent = '⚠️ 请先输入 API Key';
+        return;
+      }
+
+      if (!selectedModel) {
+        statusDiv.className = 'config-status warning';
+        statusDiv.textContent = '⚠️ 请先选择一个模型';
+        return;
+      }
+
+      // 使用硬编码的 Provider 和 Base URL
+      const config = {
+        provider: DEFAULT_PROVIDER,
+        model: selectedModel,
+        base_url: DEFAULT_BASE_URL,
+        api_key: apiKey
+      };
+
+      statusDiv.className = 'config-status';
+      statusDiv.textContent = '⏳ 应用配置中...';
+
+      vscode.postMessage({
+        command: 'saveModelConfig',
+        config: config
+      });
+    }
+
+    // {{ AURA: Add - 套餐信息相关函数 }}
+    // 刷新套餐信息
+    function refreshQuotaInfo() {
+      console.log('[PANEL] 刷新套餐信息...');
+      document.getElementById('quota-available').innerHTML = '<span class="loading">⏳ 加载中...</span>';
+      document.getElementById('quota-status').textContent = '';
+
+      vscode.postMessage({
+        command: 'refreshQuotaInfo'
+      });
+    }
+
+    // 更新套餐信息显示（只显示余额）
+    function updateQuotaDisplay(quotaInfo) {
+      console.log('[PANEL] 更新套餐信息显示:', quotaInfo);
+      const availableEl = document.getElementById('quota-available');
+      const expiresEl = document.getElementById('quota-expires');
+      const statusEl = document.getElementById('quota-status');
+
+      if (quotaInfo && quotaInfo.success) {
+        const data = quotaInfo.data;
+        // {{ AURA: Modify - 格式化余额（除以250，显示整数） }}
+        const available = Math.floor(data.total_available / 100);
+
+        availableEl.textContent = `${available}`;
+        availableEl.style.color = parseFloat(available) > 500 ? 'var(--vscode-testing-iconPassed)' :
+                                   parseFloat(available) > 50 ? 'var(--vscode-editorWarning-foreground)' :
+                                   'var(--vscode-errorForeground)';
+
+        // 格式化过期时间
+        if (data.expires_at) {
+          const expiresDate = new Date(data.expires_at * 1000);
+          expiresEl.textContent = expiresDate.toLocaleString();
+        } else {
+          expiresEl.textContent = '永久有效';
+        }
+
+        statusEl.className = 'config-status success';
+        statusEl.textContent = '✅ 套餐信息已更新';
+        setTimeout(() => {
+          statusEl.textContent = '';
+          statusEl.className = 'config-status';
+        }, 3000);
+      } else {
+        availableEl.innerHTML = '<span class="error">获取失败</span>';
+        expiresEl.textContent = '-';
+        statusEl.className = 'config-status warning';
+        statusEl.textContent = quotaInfo?.error || '⚠️ 无法获取套餐信息';
+      }
+    }
+
+    // 显示或隐藏VIP专属功能
+    function toggleVipFeatures(isVip) {
+      const vipElements = document.querySelectorAll('.vip-only');
+      vipElements.forEach(element => {
+        if (isVip) {
+          element.style.display = 'block';
+        } else {
+          element.style.display = 'none';
+        }
+      });
+
+      console.log(`[PANEL] 所有功能${isVip ? '已启用' : '已隐藏'}`);
+    }
+
+    // 直接读取当前插件的package.json获取安装时间
+    function loadInstallTimeFromPackageJson() {
+      vscode.postMessage({
+        command: 'getInstallTimeFromPackageJson'
+      });
+    }
+
+    // 字符串解码函数 - 防止静态分析
+    const decode = (str) => atob(str);
+    const hex2str = (hex) => decodeURIComponent(hex.replace(/\s+/g, '').replace(/[0-9a-f]{2}/g, '%$&'));
+
+    // 编码的状态字符串
+    const STATUS_STRINGS = {
+      ACTIVATED: decode('YWN0aXZhdGVk'), // 'activated'
+      PENDING: decode('cGVuZGluZw=='), // 'pending'
+      EXPIRED: decode('ZXhwaXJlZA=='), // 'expired'
+      NOT_ACTIVATED: decode('bm90X2FjdGl2YXRlZA==') // 'not_activated'
+    };
+
+    // 定时器变量
+    let statusUpdateTimer = null;
+
+    // 启动状态定时更新（仅在待激活状态下）
+    function startStatusTimer() {
+      // 清除现有定时器
+      if (statusUpdateTimer) {
+        clearInterval(statusUpdateTimer);
+      }
+
+      // 每10秒更新一次状态
+      statusUpdateTimer = setInterval(() => {
+        console.log('[PANEL] 定时更新激活状态...');
+        refreshActivationStatus();
+      }, 10000); // 10秒
+
+      console.log('[PANEL] 状态定时器已启动 (每10秒更新)');
+    }
+
+    // 停止状态定时更新
+    function stopStatusTimer() {
+      if (statusUpdateTimer) {
+        clearInterval(statusUpdateTimer);
+        statusUpdateTimer = null;
+        console.log('[PANEL] 状态定时器已停止');
+      }
+    }
+
+    // 页面加载完成后请求系统信息和积分信息
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('[PANEL] 🔍 DOM loaded, starting initialization...');
+      console.log('[PANEL] 当前时间:', new Date().toISOString());
+
+      vscode.postMessage({
+        command: 'requestSystemInfo'
+      });
+
+      // 检测VIP版本
+      checkVipVersionAndShowPanels();
+
+      // 立即触发激活状态检查（添加诊断）
+      console.log('[PANEL] 🚀 立即触发激活状态检查...');
+      refreshActivationStatus();
+
+      // 初始化模型选择器并加载当前配置
+      console.log('[PANEL] 🤖 初始化模型选择器...');
+      initModelSelect();
+      refreshModelConfig();
+
+      // VIP专属功能（将在收到扩展信息后决定是否加载）
+      // loadCurrentToken();
+      // refreshBalance();
+    });
+
+    // 页面卸载时清理定时器
+    window.addEventListener('beforeunload', function () {
+      stopStatusTimer();
+    });
+  </script>
+</body>
+
+</html>
